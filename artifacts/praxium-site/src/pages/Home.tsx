@@ -471,11 +471,12 @@ export default function Home() {
                         } ${i === 0 ? "rounded-tl-2xl" : ""}`}
                       >
                         <div className="font-bold text-base lg:text-lg leading-tight">{col.name}</div>
-                        {col.sub && (
-                          <div className={`text-xs mt-1 font-normal ${col.highlight ? "text-white/80" : "text-gray-500"}`}>
-                            {col.sub}
-                          </div>
-                        )}
+                        <div
+                          className={`text-xs mt-1 font-normal ${col.highlight ? "text-white/80" : "text-gray-500"}`}
+                          aria-hidden={!col.sub}
+                        >
+                          {col.sub ?? "\u00A0"}
+                        </div>
                       </th>
                     ))}
                   </tr>
