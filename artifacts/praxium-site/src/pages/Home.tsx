@@ -139,7 +139,7 @@ export default function Home() {
                   type="button"
                   onClick={() => setVideoOpen(true)}
                   aria-label="Play product introduction video"
-                  className="group absolute top-3 right-3 sm:top-5 sm:right-5 lg:top-6 lg:right-6 flex items-center gap-3 focus:outline-none"
+                  className="group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 focus:outline-none"
                   data-testid="button-play-intro-video"
                 >
                   <span className="relative flex items-center justify-center">
