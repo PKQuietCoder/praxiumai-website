@@ -1,0 +1,23 @@
+FAQ
+
+ 1. What's the difference between a creator and a learner?
+ A creator builds courses: they upload source material, configure structure, and invite people in. A learner takes the course: they work through lessons, ask the AI tutor questions, and track their own progress. One account, two distinct roles — and a creator can also be a learner in someone else's course.
+How long does course creation take, and when do I need to be involved?
+Course creation takes roughly 1-1/2 hours end-to-end, with four short checkpoints where your input is needed:
+1. Upload your source documents to start the course.
+2. Confirm the learner persona — after ~5–15 minutes (depending on doc length) of document analysis, you'll be prompted to accept or refine the suggested audience.
+3. Confirm the instructional goal — after ~5 more minutes, you'll review and refine the recommended goal.
+4. Approve the learning objectives — after ~5–10 more minutes, you'll finalize the proposed objectives.
+Once approved, the platform generates the full course in the background (~1 hour) with no further input needed.
+You don't have to stay on the page between steps. Each course's current state — for example, "Action required" or "Generating" — is shown on the home page, so you can step away and pick up where you left off whenever it's convenient
+
+ 3. How do creators add learners to a course?
+ From the creator dashboard, open the Learners tab and send an invite by email. Invited learners click the link, sign in, and land directly in the course. You can revoke access from the same dashboard at any time.
+ 4. What kinds of content can a creator produce?
+PraxiumAI creates eLearning modules and lessons. Lesson Video, learning objectives, Key point(s), Source References, Scenario-based Multiple-choice Questions. Interactive Document Explorer & AI Tutor. Further, creators can generate slides, diagrams, narration audio, narrated video, and avatar-presented video — all derived from your source material and editable inline. The visual language is intentionally minimal: the goal is a calm, distraction-free surface that keeps the learner focused on the content, not on the chrome around it.
+5. Can I bring in media made with my own design tools?
+Yes — direct upload of your own slides, images, audio, and video is on the way. We're shipping upload rather than wiring up a long list of third-party integrations on purpose: every external connector is another surface where your content and customer data could be exposed, and we'd rather give you a single, audited way in. Keep working in the tools you already love — Keynote, Figma, your video editor — apply your full branding, then bring the finished asset onto the platform yourself.
+6. What kinds of quizzes does PraxiumAI support?
+Every lesson includes short inline checks — fill-the-blank, matching, and ordering exercises, plus predict-before-reveal worked examples — designed to build reasoning as the learner reads. Each lesson then closes with a multiple-choice quiz. Only the multiple-choice quiz is graded; the inline checks are formative practice and don't affect a learner's score.
+6. Is my content private and secure?
+Yes. Your source documents and generated content stay in your workspace and are never used to train AI models. All data is encrypted in transit and rest, and our underlying infrastructure providers are SOC 2 Type 2 certified.

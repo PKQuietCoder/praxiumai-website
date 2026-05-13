@@ -2,6 +2,12 @@ import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog";
@@ -528,6 +534,176 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-20 lg:py-32">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <motion.div
+            className="text-center mb-12 lg:mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Frequently asked questions
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+              Everything you need to know about creating and taking courses on PraxiumAI.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 p-2 sm:p-4 lg:p-6"
+          >
+            <Accordion type="single" collapsible className="w-full">
+              {[
+                {
+                  q: "What's the difference between a creator and a learner?",
+                  a: (
+                    <>
+                      A creator builds courses: they upload source material, configure structure, and invite people in.
+                      A learner takes the course: they work through lessons, ask the AI tutor questions, and track their
+                      own progress. One account, two distinct roles — and a creator can also be a learner in someone
+                      else's course.
+                    </>
+                  )
+                },
+                {
+                  q: "How long does course creation take, and when do I need to be involved?",
+                  a: (
+                    <>
+                      <p className="mb-3">
+                        Course creation takes roughly 1½ hours end-to-end, with four short checkpoints where your input
+                        is needed:
+                      </p>
+                      <ol className="list-decimal pl-5 space-y-2 mb-3">
+                        <li>Upload your source documents to start the course.</li>
+                        <li>
+                          Confirm the learner persona — after ~5–15 minutes (depending on doc length) of document
+                          analysis, you'll be prompted to accept or refine the suggested audience.
+                        </li>
+                        <li>
+                          Confirm the instructional goal — after ~5 more minutes, you'll review and refine the
+                          recommended goal.
+                        </li>
+                        <li>
+                          Approve the learning objectives — after ~5–10 more minutes, you'll finalize the proposed
+                          objectives.
+                        </li>
+                      </ol>
+                      <p className="mb-3">
+                        Once approved, the platform generates the full course in the background (~1 hour) with no
+                        further input needed.
+                      </p>
+                      <p>
+                        You don't have to stay on the page between steps. Each course's current state — for example,
+                        "Action required" or "Generating" — is shown on the home page, so you can step away and pick up
+                        where you left off whenever it's convenient.
+                      </p>
+                    </>
+                  )
+                },
+                {
+                  q: "How do creators add learners to a course?",
+                  a: (
+                    <>
+                      From the creator dashboard, open the Learners tab and send an invite by email. Invited learners
+                      click the link, sign in, and land directly in the course. You can revoke access from the same
+                      dashboard at any time.
+                    </>
+                  )
+                },
+                {
+                  q: "What kinds of content can a creator produce?",
+                  a: (
+                    <>
+                      PraxiumAI creates eLearning modules and lessons — lesson video, learning objectives, key points,
+                      source references, scenario-based multiple-choice questions, plus an interactive document
+                      explorer and AI tutor. Creators can also generate slides, diagrams, narration audio, narrated
+                      video, and avatar-presented video — all derived from your source material and editable inline.
+                      The visual language is intentionally minimal: the goal is a calm, distraction-free surface that
+                      keeps the learner focused on the material.
+                    </>
+                  )
+                },
+                {
+                  q: "Can I bring in media made with my own design tools?",
+                  a: (
+                    <>
+                      Yes — direct upload of your own slides, images, audio, and video is on the way. We're shipping
+                      upload rather than wiring up a long list of third-party integrations on purpose: every external
+                      connector is another surface where your content and customer data could be exposed, and we'd
+                      rather give you a single, audited way in. Keep working in the tools you already love — Keynote,
+                      Figma, your video editor — apply your full branding, then bring the finished asset onto the
+                      platform yourself.
+                    </>
+                  )
+                },
+                {
+                  q: "What kinds of quizzes does PraxiumAI support?",
+                  a: (
+                    <>
+                      Every lesson includes short inline checks — fill-the-blank, matching, and ordering exercises,
+                      plus predict-before-reveal worked examples — designed to build reasoning as the learner reads.
+                      Each lesson then closes with a multiple-choice quiz. Only the multiple-choice quiz is graded; the
+                      inline checks are formative practice and don't affect a learner's score.
+                    </>
+                  )
+                },
+                {
+                  q: "Is my content private and secure?",
+                  a: (
+                    <>
+                      Yes. Your source documents and generated content stay in your workspace and are never used to
+                      train AI models. All data is encrypted in transit and at rest, and our underlying infrastructure
+                      providers are SOC 2 Type 2 certified.
+                    </>
+                  )
+                }
+              ].map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`faq-${i}`}
+                  className="border-b border-gray-200 last:border-b-0 px-3 sm:px-4"
+                  data-testid={`faq-item-${i}`}
+                >
+                  <AccordionTrigger className="py-5 lg:py-6 text-left text-base lg:text-lg font-semibold text-gray-900 hover:no-underline hover:text-primary [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-primary">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6 pt-0 text-base text-gray-600 leading-relaxed">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center text-gray-600 mt-10 text-base"
+          >
+            Still have questions?{" "}
+            <a
+              href="https://app.getpraxium.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary font-semibold hover:text-primary/80 underline underline-offset-4"
+              data-testid="link-faq-contact"
+            >
+              Get in touch
+            </a>
+            .
+          </motion.p>
         </div>
       </section>
 
