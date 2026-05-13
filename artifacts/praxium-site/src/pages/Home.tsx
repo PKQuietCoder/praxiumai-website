@@ -1,9 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog";
+
+const MuxPlayer = lazy(() => import("@mux/mux-player-react"));
+
+const MUX_PLAYBACK_ID = "g4mWtFkEpHWYsO4t004ktdkRFt0001N3TH4OU01lZpRliNk";
+const MUX_POSTER_TIME = 134;
+const MUX_POSTER_URL = `https://image.mux.com/${MUX_PLAYBACK_ID}/thumbnail.jpg?time=${MUX_POSTER_TIME}`;
 
 // Asset imports
 import logoWhite from "@assets/praxium/praxium-ai-logo-white.png";
@@ -39,6 +46,7 @@ const staggerContainer = {
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: true });
 
   useEffect(() => {
@@ -118,12 +126,33 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <img
-                src={heroProductImage}
-                alt="PraxiumAI course builder interface preview"
-                className="block w-full max-w-2xl mx-auto lg:mx-0 lg:ml-auto select-none pointer-events-none"
-                draggable={false}
-              />
+              <div className="relative w-full max-w-2xl mx-auto lg:mx-0 lg:ml-auto">
+                <img
+                  src={heroProductImage}
+                  alt="PraxiumAI course builder interface preview"
+                  className="block w-full select-none pointer-events-none"
+                  draggable={false}
+                />
+
+                {/* Play button overlay */}
+                <button
+                  type="button"
+                  onClick={() => setVideoOpen(true)}
+                  aria-label="Play product introduction video"
+                  className="group absolute top-3 right-3 sm:top-5 sm:right-5 lg:top-6 lg:right-6 flex items-center gap-3 focus:outline-none"
+                  data-testid="button-play-intro-video"
+                >
+                  <span className="relative flex items-center justify-center">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-white/40 animate-ping" />
+                    <span className="relative flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16 rounded-full bg-white shadow-xl transition-transform group-hover:scale-110 group-focus-visible:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-white/70">
+                      <Play className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary fill-primary ml-0.5" />
+                    </span>
+                  </span>
+                  <span className="hidden sm:inline-flex items-center rounded-full bg-white/95 px-3 py-1.5 text-xs lg:text-sm font-semibold text-primary shadow-md transition-transform group-hover:-translate-y-0.5">
+                    Watch 2-min intro
+                  </span>
+                </button>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -495,6 +524,42 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Product Intro Video Modal */}
+      <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+        <DialogContent
+          className="max-w-4xl w-[95vw] p-0 bg-black border-0 overflow-hidden rounded-xl shadow-2xl [&>button]:hidden"
+          data-testid="dialog-intro-video"
+        >
+          <DialogTitle className="sr-only">PraxiumAI product introduction</DialogTitle>
+          <DialogClose
+            className="absolute right-3 top-3 z-50 rounded-full bg-black/60 hover:bg-black/80 text-white p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            aria-label="Close video"
+            data-testid="button-close-video"
+          >
+            <X className="h-5 w-5" />
+          </DialogClose>
+          <div className="relative w-full aspect-video bg-black">
+            {videoOpen && (
+              <Suspense fallback={
+                <div className="absolute inset-0 flex items-center justify-center text-white/70 text-sm">
+                  Loading video…
+                </div>
+              }>
+                <MuxPlayer
+                  playbackId={MUX_PLAYBACK_ID}
+                  poster={MUX_POSTER_URL}
+                  metadata={{ video_title: "PraxiumAI product introduction" }}
+                  accentColor="#166A6C"
+                  streamType="on-demand"
+                  autoPlay
+                  style={{ width: "100%", height: "100%", aspectRatio: "16 / 9", "--media-object-fit": "contain" } as any}
+                />
+              </Suspense>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
