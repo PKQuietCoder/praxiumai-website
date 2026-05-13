@@ -734,7 +734,7 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.h2 variants={fadeInUp} className="text-4xl lg:text-5xl font-bold text-white mb-10 tracking-tight">
-              Ready to ship training 10× faster?
+              Ready to ship training with better outcomes?
             </motion.h2>
             <motion.div variants={fadeInUp}>
               <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
