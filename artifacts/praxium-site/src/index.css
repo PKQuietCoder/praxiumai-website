@@ -156,7 +156,7 @@
 .wave-divider svg {
   display: block;
   width: calc(100% + 1.3px);
-  height: 120px;
+  height: 100%;
 }
 .wave-divider .shape-fill {
   fill: #FFFFFF;
