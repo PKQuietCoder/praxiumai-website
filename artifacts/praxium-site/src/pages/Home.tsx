@@ -174,13 +174,13 @@ export default function Home() {
                     <span className="absolute inline-flex h-full w-full rounded-full bg-white/30 animate-ping [animation-delay:600ms]" />
 
                     {/* Main button */}
-                    <span className="relative flex items-center justify-center h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 rounded-full bg-white shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] ring-4 ring-accent/80 transition-all duration-200 group-hover:scale-110 group-hover:ring-accent group-hover:shadow-[0_25px_60px_-10px_rgba(233,116,81,0.6)] group-focus-visible:scale-110 group-focus-visible:ring-white">
-                      <Play className="h-9 w-9 sm:h-11 sm:w-11 lg:h-12 lg:w-12 text-accent fill-accent ml-1" strokeWidth={1.5} />
+                    <span className="relative flex items-center justify-center h-[60px] w-[60px] sm:h-[72px] sm:w-[72px] lg:h-[84px] lg:w-[84px] rounded-full bg-white shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] ring-[3px] ring-accent/80 transition-all duration-200 group-hover:scale-110 group-hover:ring-accent group-hover:shadow-[0_25px_60px_-10px_rgba(233,116,81,0.6)] group-focus-visible:scale-110 group-focus-visible:ring-white">
+                      <Play className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-accent fill-accent ml-0.5" strokeWidth={1.5} />
                     </span>
                   </span>
 
                   {/* Label pill */}
-                  <span className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base font-semibold text-white shadow-lg ring-2 ring-white/40 transition-transform group-hover:-translate-y-0.5">
+                  <span className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-lg ring-2 ring-white/40 transition-transform group-hover:-translate-y-0.5">
                     Watch intro video
                   </span>
                 </button>
