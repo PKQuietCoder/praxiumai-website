@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X } from "lucide-react";
@@ -47,6 +47,29 @@ const staggerContainer = {
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false);
+  const muxPlayerRef = useRef<any>(null);
+
+  const openVideo = () => {
+    setVideoEnded(false);
+    setVideoOpen(true);
+  };
+
+  const replayVideo = () => {
+    setVideoEnded(false);
+    const player = muxPlayerRef.current;
+    if (player) {
+      try {
+        player.currentTime = 0;
+        const playPromise = player.play?.();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+      } catch {
+        // ignore
+      }
+    }
+  };
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: true });
 
   useEffect(() => {
@@ -137,7 +160,7 @@ export default function Home() {
                 {/* Play button overlay */}
                 <button
                   type="button"
-                  onClick={() => setVideoOpen(true)}
+                  onClick={openVideo}
                   aria-label="Play product introduction video"
                   className="group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 focus:outline-none"
                   data-testid="button-play-intro-video"
@@ -528,18 +551,21 @@ export default function Home() {
       {/* Product Intro Video Modal */}
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
         <DialogContent
-          className="max-w-4xl w-[95vw] p-0 bg-black border-0 overflow-hidden rounded-xl shadow-2xl [&>button]:hidden"
+          className="max-w-4xl w-[95vw] p-0 bg-transparent border-0 shadow-none [&>button]:hidden"
           data-testid="dialog-intro-video"
         >
           <DialogTitle className="sr-only">PraxiumAI product introduction</DialogTitle>
+
+          {/* Close button — outside the video frame, always visible */}
           <DialogClose
-            className="absolute right-3 top-3 z-50 rounded-full bg-black/60 hover:bg-black/80 text-white p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="absolute -top-12 right-0 sm:-top-14 sm:-right-2 z-50 flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white/95 hover:bg-white text-gray-900 shadow-lg transition-transform hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Close video"
             data-testid="button-close-video"
           >
-            <X className="h-5 w-5" />
+            <X className="h-5 w-5 sm:h-6 sm:w-6" />
           </DialogClose>
-          <div className="relative w-full aspect-video bg-black">
+
+          <div className="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
             {videoOpen && (
               <Suspense fallback={
                 <div className="absolute inset-0 flex items-center justify-center text-white/70 text-sm">
@@ -547,15 +573,65 @@ export default function Home() {
                 </div>
               }>
                 <MuxPlayer
+                  ref={muxPlayerRef}
                   playbackId={MUX_PLAYBACK_ID}
                   poster={MUX_POSTER_URL}
                   metadata={{ video_title: "PraxiumAI product introduction" }}
                   accentColor="#166A6C"
                   streamType="on-demand"
                   autoPlay
+                  onEnded={() => setVideoEnded(true)}
+                  onPlay={() => setVideoEnded(false)}
                   style={{ width: "100%", height: "100%", aspectRatio: "16 / 9", "--media-object-fit": "contain" } as any}
                 />
               </Suspense>
+            )}
+
+            {/* End-card overlay */}
+            {videoEnded && (
+              <div
+                className="absolute inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-black/85 backdrop-blur-sm px-6 text-center animate-in fade-in duration-300"
+                data-testid="overlay-video-ended"
+              >
+                <div>
+                  <h3 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
+                    Ready to turn your docs into training?
+                  </h3>
+                  <p className="text-white/80 text-sm sm:text-base">
+                    Get early access to PraxiumAI.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+                  <a
+                    href="https://app.getpraxium.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto"
+                    data-testid="link-end-card-request-access"
+                  >
+                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-12 px-6 text-base shadow-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto">
+                      Request Access
+                      <ArrowUpRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={replayVideo}
+                    className="text-white/90 hover:text-white text-sm font-medium underline underline-offset-4 transition-colors px-4 py-2"
+                    data-testid="button-end-card-replay"
+                  >
+                    Watch again
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setVideoOpen(false)}
+                    className="text-white/90 hover:text-white text-sm font-medium underline underline-offset-4 transition-colors px-4 py-2"
+                    data-testid="button-end-card-close"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </DialogContent>
