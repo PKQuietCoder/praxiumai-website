@@ -172,7 +172,7 @@ export default function Home() {
                     </span>
                   </span>
                   <span className="hidden sm:inline-flex items-center rounded-full bg-white/95 px-3 py-1.5 text-xs lg:text-sm font-semibold text-primary shadow-md transition-transform group-hover:-translate-y-0.5">
-                    Watch 2-min intro
+                    Watch intro video
                   </span>
                 </button>
               </div>
