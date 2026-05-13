@@ -372,13 +372,13 @@ export default function Home() {
             <span className="text-white/60 text-sm">© PraxiumAI</span>
           </div>
           <div>
-            <a 
-              href="https://app.getpraxium.ai/" 
-              target="_blank" 
+            <a
+              href="https://privacy.us.lg.com/policies"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-white/80 hover:text-white transition-colors text-sm font-medium"
             >
-              Request Access
+              Privacy Policy
             </a>
           </div>
         </div>
