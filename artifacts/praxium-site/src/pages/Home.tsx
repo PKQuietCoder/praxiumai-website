@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, FileText, LayoutDashboard, Clock, Layers } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -20,6 +20,7 @@ import feature2Img from "@assets/praxium/source-attribution.png";
 import feature3Img from "@assets/praxium/personalization.png";
 import feature4Img from "@assets/praxium/in-workflow-learning.png";
 import feature5Img from "@assets/praxium/skill-assessment.png";
+import heroProductImage from "@assets/image_1778677837312.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -110,101 +111,19 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right Content - Laptop Mockup */}
-            <motion.div 
-              className="lg:w-1/2 w-full mt-12 lg:mt-0"
+            {/* Right Content - Hero Product Image (cropped on right like the original) */}
+            <motion.div
+              className="lg:w-1/2 w-full mt-12 lg:mt-0 relative"
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="laptop-mockup relative">
-                <div className="laptop-screen bg-gray-50 flex flex-col p-0">
-                  {/* Fake UI Header */}
-                  <div className="h-10 bg-white border-b border-gray-200 flex items-center px-4 shrink-0">
-                    <div className="flex gap-2">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
-                    </div>
-                    <div className="mx-auto h-4 w-32 bg-gray-100 rounded"></div>
-                  </div>
-                  {/* Fake UI Body */}
-                  <div className="flex-1 p-6 relative overflow-hidden bg-slate-50">
-                    <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,transparent,black)]"></div>
-                    
-                    {/* Floating Card 1 */}
-                    <motion.div 
-                      className="absolute top-4 left-4 bg-white p-3 rounded-lg shadow-md border border-gray-100 w-48 z-10"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.6 }}
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="bg-primary/10 p-1.5 rounded-md">
-                          <FileText className="w-4 h-4 text-primary" />
-                        </div>
-                        <span className="text-xs font-semibold text-gray-800">Upload document</span>
-                      </div>
-                      <div className="h-2 w-full bg-gray-100 rounded mb-1"></div>
-                      <div className="h-2 w-2/3 bg-gray-100 rounded"></div>
-                    </motion.div>
-
-                    {/* Floating Card 2 */}
-                    <motion.div 
-                      className="absolute top-20 right-4 bg-white p-4 rounded-xl shadow-lg border border-gray-100 w-56 z-20"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.8 }}
-                    >
-                      <div className="flex items-center gap-2 mb-3">
-                        <CheckCircle2 className="w-5 h-5 text-green-500" />
-                        <span className="text-sm font-bold text-gray-900">Your Course is Ready</span>
-                      </div>
-                      <div className="text-xs font-medium text-gray-600 mb-3">Course Introduction</div>
-                      <div className="flex gap-2">
-                        <span className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-full flex items-center gap-1">
-                          <Clock className="w-3 h-3" /> 1.5 hours
-                        </span>
-                        <span className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-full flex items-center gap-1">
-                          <Layers className="w-3 h-3" /> 7 modules
-                        </span>
-                      </div>
-                    </motion.div>
-
-                    {/* Floating Card 3 */}
-                    <motion.div 
-                      className="absolute bottom-8 left-8 bg-white p-4 rounded-xl shadow-lg border border-gray-100 w-64 z-30"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 1.0 }}
-                    >
-                      <div className="flex items-center gap-2 mb-4">
-                        <LayoutDashboard className="w-4 h-4 text-accent" />
-                        <span className="text-sm font-bold text-gray-900">Module Structure</span>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between p-2 bg-gray-50 rounded border border-gray-100">
-                          <div className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                            <span className="text-xs font-medium text-gray-700">Introduction to course</span>
-                          </div>
-                          <span className="text-[10px] text-gray-500 font-medium">12 mins</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2 bg-white rounded border border-gray-100">
-                          <div className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-                            <span className="text-xs font-medium text-gray-500">Core Concepts</span>
-                          </div>
-                          <span className="text-[10px] text-gray-400">18 mins</span>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                  </div>
-                </div>
-                <div className="laptop-base"></div>
-              </div>
+              <img
+                src={heroProductImage}
+                alt="PraxiumAI course builder interface preview"
+                className="block w-[140%] max-w-none lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 select-none pointer-events-none"
+                draggable={false}
+              />
             </motion.div>
           </div>
         </div>
