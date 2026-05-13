@@ -121,7 +121,7 @@ export default function Home() {
               <img
                 src={heroProductImage}
                 alt="PraxiumAI course builder interface preview"
-                className="block w-full lg:w-[120%] max-w-none lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 select-none pointer-events-none"
+                className="block w-full max-w-2xl mx-auto lg:mx-0 lg:ml-auto select-none pointer-events-none"
                 draggable={false}
               />
             </motion.div>
