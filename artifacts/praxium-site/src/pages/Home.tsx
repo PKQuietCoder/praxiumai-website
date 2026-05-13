@@ -48,15 +48,33 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
+  const [videoPaused, setVideoPaused] = useState(false);
   const muxPlayerRef = useRef<any>(null);
 
   const openVideo = () => {
     setVideoEnded(false);
+    setVideoPaused(false);
     setVideoOpen(true);
+  };
+
+  const resumeVideo = () => {
+    setVideoPaused(false);
+    const player = muxPlayerRef.current;
+    if (player) {
+      try {
+        const playPromise = player.play?.();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+      } catch {
+        // ignore
+      }
+    }
   };
 
   const replayVideo = () => {
     setVideoEnded(false);
+    setVideoPaused(false);
     const player = muxPlayerRef.current;
     if (player) {
       try {
@@ -589,8 +607,22 @@ export default function Home() {
                   accentColor="#166A6C"
                   streamType="on-demand"
                   autoPlay
-                  onEnded={() => setVideoEnded(true)}
-                  onPlay={() => setVideoEnded(false)}
+                  onEnded={() => {
+                    setVideoPaused(false);
+                    setVideoEnded(true);
+                  }}
+                  onPlay={() => {
+                    setVideoEnded(false);
+                    setVideoPaused(false);
+                  }}
+                  onPause={() => {
+                    const player = muxPlayerRef.current;
+                    const duration = player?.duration ?? 0;
+                    const currentTime = player?.currentTime ?? 0;
+                    // Don't show paused overlay when pause fires due to natural end
+                    if (duration > 0 && currentTime >= duration - 0.5) return;
+                    setVideoPaused(true);
+                  }}
                   style={{ width: "100%", height: "100%", aspectRatio: "16 / 9", "--media-object-fit": "contain" } as any}
                 />
               </Suspense>
@@ -636,6 +668,54 @@ export default function Home() {
                     onClick={() => setVideoOpen(false)}
                     className="text-white/90 hover:text-white text-sm font-medium underline underline-offset-4 transition-colors px-4 py-2"
                     data-testid="button-end-card-close"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Paused overlay */}
+            {videoPaused && !videoEnded && (
+              <div
+                className="absolute inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-black/85 backdrop-blur-sm px-6 text-center animate-in fade-in duration-300"
+                data-testid="overlay-video-paused"
+              >
+                <div>
+                  <h3 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
+                    Like what you see?
+                  </h3>
+                  <p className="text-white/80 text-sm sm:text-base">
+                    Get early access to PraxiumAI — or keep watching.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+                  <a
+                    href="https://app.getpraxium.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto"
+                    data-testid="link-paused-card-request-access"
+                  >
+                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-12 px-6 text-base shadow-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto">
+                      Request Access
+                      <ArrowUpRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={resumeVideo}
+                    className="inline-flex items-center gap-2 rounded-[7px] border border-white/40 bg-white/10 hover:bg-white/20 text-white font-medium h-12 px-5 text-base transition-colors w-full sm:w-auto justify-center"
+                    data-testid="button-paused-card-resume"
+                  >
+                    <Play className="h-4 w-4 fill-white" strokeWidth={1.5} />
+                    Resume video
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setVideoOpen(false)}
+                    className="text-white/90 hover:text-white text-sm font-medium underline underline-offset-4 transition-colors px-4 py-2"
+                    data-testid="button-paused-card-close"
                   >
                     Close
                   </button>
