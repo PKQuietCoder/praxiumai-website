@@ -162,16 +162,25 @@ export default function Home() {
                   type="button"
                   onClick={openVideo}
                   aria-label="Play product introduction video"
-                  className="group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-3 focus:outline-none"
+                  className="group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4 focus:outline-none"
                   data-testid="button-play-intro-video"
                 >
+                  {/* Soft glow halo behind button for contrast against laptop screen */}
+                  <span aria-hidden className="absolute -inset-10 rounded-full bg-accent/25 blur-2xl" />
+
                   <span className="relative flex items-center justify-center">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-white/40 animate-ping" />
-                    <span className="relative flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16 rounded-full bg-white shadow-xl transition-transform group-hover:scale-110 group-focus-visible:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-white/70">
-                      <Play className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-primary fill-primary ml-0.5" />
+                    {/* Outer pulsing rings */}
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-accent/50 animate-ping" />
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-white/30 animate-ping [animation-delay:600ms]" />
+
+                    {/* Main button */}
+                    <span className="relative flex items-center justify-center h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 rounded-full bg-white shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] ring-4 ring-accent/80 transition-all duration-200 group-hover:scale-110 group-hover:ring-accent group-hover:shadow-[0_25px_60px_-10px_rgba(233,116,81,0.6)] group-focus-visible:scale-110 group-focus-visible:ring-white">
+                      <Play className="h-9 w-9 sm:h-11 sm:w-11 lg:h-12 lg:w-12 text-accent fill-accent ml-1" strokeWidth={1.5} />
                     </span>
                   </span>
-                  <span className="hidden sm:inline-flex items-center rounded-full bg-white/95 px-3 py-1.5 text-xs lg:text-sm font-semibold text-primary shadow-md transition-transform group-hover:-translate-y-0.5">
+
+                  {/* Label pill */}
+                  <span className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base font-semibold text-white shadow-lg ring-2 ring-white/40 transition-transform group-hover:-translate-y-0.5">
                     Watch intro video
                   </span>
                 </button>
