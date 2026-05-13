@@ -340,6 +340,118 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why PraxiumAI - Differentiators */}
+      <section className="bg-gray-50 py-20 lg:py-32">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <motion.div
+            className="text-center mb-12 lg:mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Why PraxiumAI
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              How PraxiumAI compares to other approaches across the capabilities that matter for technical training.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden"
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[760px] border-collapse">
+                <thead>
+                  <tr>
+                    <th className="text-left p-5 lg:p-6 font-semibold text-gray-500 text-sm uppercase tracking-wider w-[26%]">
+                      Capability
+                    </th>
+                    {[
+                      { name: "PraxiumAI", sub: null, highlight: true },
+                      { name: "Agentic Apps", sub: "NotebookLM, Claude, …" },
+                      { name: "AI Copilots", sub: "PowerPoint copilot, …" },
+                      { name: "L&D Authoring", sub: "Articulate Rise 360, …" },
+                      { name: "New Startups", sub: null }
+                    ].map((col, i) => (
+                      <th
+                        key={i}
+                        className={`p-4 lg:p-6 text-center align-bottom ${
+                          col.highlight ? "bg-primary text-white" : "bg-gray-100 text-gray-800"
+                        } ${i === 0 ? "rounded-tl-2xl" : ""}`}
+                      >
+                        <div className="font-bold text-base lg:text-lg leading-tight">{col.name}</div>
+                        {col.sub && (
+                          <div className={`text-xs mt-1 font-normal ${col.highlight ? "text-white/80" : "text-gray-500"}`}>
+                            {col.sub}
+                          </div>
+                        )}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { row: "Evidence-based Frameworks",   ratings: ["best", "ok", "weak", "ok", "weak"] },
+                    { row: "Speed & Automation",          ratings: ["ok", "best", "ok", "best", "best"] },
+                    { row: "Multimedia Personalization",  ratings: ["best", "best", "weak", "ok", "ok"] },
+                    { row: "Rigorous Skill Modeling",     ratings: ["best", "ok", "weak", "ok", "weak"] },
+                    { row: "Faithfulness & Technical Grounding", ratings: ["best", "ok", "weak", "weak", "weak"] },
+                    { row: "In-workflow Integrations",    ratings: ["best", "weak", "ok", "best", "ok"] }
+                  ].map((row, ri) => (
+                    <tr key={ri} className="border-t border-gray-100">
+                      <td className="p-5 lg:p-6 font-semibold text-gray-900 text-sm lg:text-base">
+                        {row.row}
+                      </td>
+                      {row.ratings.map((r, ci) => (
+                        <td
+                          key={ci}
+                          className={`p-4 lg:p-6 text-center ${ci === 0 ? "bg-primary/5" : ""}`}
+                        >
+                          <span
+                            className={`inline-block w-4 h-4 lg:w-5 lg:h-5 rounded-full ${
+                              r === "best"
+                                ? "bg-primary"
+                                : r === "ok"
+                                ? "bg-amber-400"
+                                : "bg-accent"
+                            }`}
+                            aria-label={r === "best" ? "Best in class" : r === "ok" ? "Acceptable" : "Weak"}
+                          />
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="border-t border-gray-100 p-5 lg:p-6 bg-white">
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+                <span className="text-sm font-semibold text-gray-700">Performance scale</span>
+                <div className="flex items-center gap-2">
+                  <span className="inline-block w-3.5 h-3.5 rounded-full bg-primary" />
+                  <span className="text-sm text-gray-600">Best in class</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-block w-3.5 h-3.5 rounded-full bg-amber-400" />
+                  <span className="text-sm text-gray-600">Acceptable</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-block w-3.5 h-3.5 rounded-full bg-accent" />
+                  <span className="text-sm text-gray-600">Weak</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Closing CTA */}
       <section className="bg-primary py-24 text-center">
         <div className="container mx-auto px-6 max-w-4xl">
