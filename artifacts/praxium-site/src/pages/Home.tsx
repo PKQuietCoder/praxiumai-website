@@ -694,9 +694,7 @@ export default function Home() {
           >
             Still have questions?{" "}
             <a
-              href="https://app.getpraxium.ai/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:contact@getpraxium.ai"
               className="text-primary font-semibold hover:text-primary/80 underline underline-offset-4"
               data-testid="link-faq-contact"
             >
