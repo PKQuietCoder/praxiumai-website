@@ -60,25 +60,25 @@ export default function Home() {
           isScrolled ? "bg-white shadow-sm py-4" : "bg-transparent py-6"
         }`}
       >
-        <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-          <div className="flex-shrink-0">
-            <img 
-              src={logoWhite} 
-              alt="PraxiumAI" 
-              className={`h-8 transition-all duration-300 ${isScrolled ? "brightness-0" : ""}`} 
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-3">
+          <div className="flex-shrink-0 min-w-0">
+            <img
+              src={logoWhite}
+              alt="PraxiumAI"
+              className={`h-7 sm:h-8 transition-all duration-300 ${isScrolled ? "brightness-0" : ""}`}
             />
           </div>
-          <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-11 px-6 shadow-md transition-transform hover:-translate-y-0.5">
+          <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+            <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-10 sm:h-11 px-4 sm:px-6 text-sm sm:text-base shadow-md transition-transform hover:-translate-y-0.5">
               Request Access
-              <ArrowUpRight className="ml-2 h-4 w-4" />
+              <ArrowUpRight className="ml-1.5 sm:ml-2 h-4 w-4" />
             </Button>
           </a>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-primary pt-32 pb-48 lg:pt-40 lg:pb-56 overflow-hidden hero-grid">
+      <section className="relative bg-primary pt-28 sm:pt-32 pb-32 sm:pb-48 lg:pt-40 lg:pb-56 overflow-hidden hero-grid">
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
             
@@ -91,13 +91,13 @@ export default function Home() {
             >
               <motion.h1 
                 variants={fadeInUp}
-                className="text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6"
+                className="text-[2rem] sm:text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-6"
               >
                 Turn technical docs and knowledge into multimedia training
               </motion.h1>
               <motion.p 
                 variants={fadeInUp}
-                className="text-lg lg:text-xl text-primary-foreground/90 leading-relaxed mb-10 max-w-xl"
+                className="text-base sm:text-lg lg:text-xl text-primary-foreground/90 leading-relaxed mb-8 sm:mb-10 max-w-xl"
               >
                 PraxiumAI captures your expertise and complex docs and transforms them into personalized upskilling experiences grounded in learning science. Built for the agentic era.
               </motion.p>
