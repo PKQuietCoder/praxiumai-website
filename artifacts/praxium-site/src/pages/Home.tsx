@@ -149,7 +149,7 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 lg:-mr-6">
+              <div className="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 lg:w-[125%]">
                 <img
                   src={heroProductImage}
                   alt="PraxiumAI course builder interface preview"
