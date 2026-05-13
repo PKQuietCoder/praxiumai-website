@@ -562,8 +562,27 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 p-2 sm:p-4 lg:p-6"
           >
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible defaultValue="faq-0" className="w-full">
               {[
+                {
+                  q: "How do I get started?",
+                  a: (
+                    <>
+                      The fastest path is a product demo — no slide deck, no pitch, just the product with your actual
+                      use case as the context. We'll look at a real training challenge you're facing, walk through how
+                      PraxiumAI would approach it, and show you the quality of the output on something built for a
+                      situation like yours. Email{" "}
+                      <a
+                        href="mailto:pk@getpraxium.ai"
+                        className="text-primary font-semibold hover:text-primary/80 underline underline-offset-4"
+                        data-testid="link-faq-getting-started-email"
+                      >
+                        pk@getpraxium.ai
+                      </a>{" "}
+                      to book a slot — every inquiry gets a personal response.
+                    </>
+                  )
+                },
                 {
                   q: "What's the difference between a creator and a learner?",
                   a: (
