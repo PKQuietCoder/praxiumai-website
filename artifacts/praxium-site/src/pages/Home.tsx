@@ -596,12 +596,31 @@ export default function Home() {
                   )
                 },
                 {
+                  q: "What is PraxiumAI and what does it actually do?",
+                  a: (
+                    <>
+                      PraxiumAI is an AI-powered training course creation platform. It transforms your existing
+                      documents and subject matter expertise into complete, evidence-based, interactive technical
+                      training courses — in approximately one hour. Unlike tools that simply convert documents into
+                      content, PraxiumAI starts with learner analysis and skill decomposition before generating a
+                      single word of content, ensuring every course is calibrated to produce real behavioral change on
+                      the job.
+                    </>
+                  )
+                },
+                {
                   q: "How long does course creation take, and when do I need to be involved?",
                   a: (
                     <>
                       <p className="mb-3">
-                        Course creation takes roughly 1½ hours end-to-end, with four short checkpoints where your input
-                        is needed:
+                        Approximately one hour for a complete 30-minute course — including learner analysis, objective
+                        setting, content generation, assessment design, and formatting for delivery. The traditional
+                        process for the same course takes 8–12 weeks and costs $30,000–$50,000 at fully-loaded industry
+                        rates. PraxiumAI does not cut corners to achieve that speed; it automates the execution so
+                        human attention can stay focused on judgment, validation, and strategic design.
+                      </p>
+                      <p className="mb-3">
+                        Within that hour, there are four short checkpoints where your input is needed:
                       </p>
                       <ol className="list-decimal pl-5 space-y-2 mb-3">
                         <li>Upload your source documents to start the course.</li>
@@ -618,10 +637,6 @@ export default function Home() {
                           objectives.
                         </li>
                       </ol>
-                      <p className="mb-3">
-                        Once approved, the platform generates the full course in the background (~1 hour) with no
-                        further input needed.
-                      </p>
                       <p>
                         You don't have to stay on the page between steps. Each course's current state — for example,
                         "Action required" or "Generating" — is shown on the home page, so you can step away and pick up
