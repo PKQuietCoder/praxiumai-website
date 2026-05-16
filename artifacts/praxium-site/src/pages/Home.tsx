@@ -129,8 +129,8 @@ export default function Home() {
 
           {/* Desktop nav */}
           <nav
-            className={`hidden md:flex items-center gap-7 lg:gap-9 text-sm font-medium transition-colors ${
-              isScrolled ? "text-gray-700" : "text-white/90"
+            className={`hidden md:flex items-center gap-8 lg:gap-10 absolute left-1/2 -translate-x-1/2 transition-colors ${
+              isScrolled ? "text-gray-800" : "text-white"
             }`}
             aria-label="Primary"
           >
@@ -143,9 +143,7 @@ export default function Home() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`transition-colors hover:${isScrolled ? "text-primary" : "text-white"} ${
-                  isScrolled ? "hover:text-primary" : "hover:text-white"
-                }`}
+                className="relative text-[15px] font-semibold tracking-tight opacity-90 hover:opacity-100 transition-opacity after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-left after:bg-current after:transition-transform hover:after:scale-x-100"
                 data-testid={`nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 {item.label}
@@ -154,17 +152,6 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-            <a
-              href="https://app.getpraxium.ai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`hidden md:inline-block text-sm font-medium transition-colors ${
-                isScrolled ? "text-gray-700 hover:text-primary" : "text-white/90 hover:text-white"
-              }`}
-              data-testid="nav-link-sign-in"
-            >
-              Sign in
-            </a>
             <a
               href="https://app.getpraxium.ai/"
               target="_blank"
@@ -216,16 +203,7 @@ export default function Home() {
                       </a>
                     ))}
                   </nav>
-                  <div className="px-6 py-6 border-t border-gray-100 flex flex-col gap-3">
-                    <a
-                      href="https://app.getpraxium.ai/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-center text-sm font-medium text-gray-700 hover:text-primary py-2"
-                      data-testid="mobile-nav-link-sign-in"
-                    >
-                      Sign in
-                    </a>
+                  <div className="px-6 py-6 border-t border-gray-100">
                     <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-11 shadow-md">
                         Request Access
