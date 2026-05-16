@@ -585,7 +585,7 @@ export default function Home() {
                   a: (
                     <>
                       The fastest path is a product demo — no slide deck, no pitch, just the product with your actual
-                      use case as the context. We'll look at a real training challenge you're facing, walk through how
+                      use case as the context. We'll look at a real challenge you're facing, walk through how
                       PraxiumAI would approach it, and show you the quality of the output on something built for a
                       situation like yours. Email{" "}
                       <a
