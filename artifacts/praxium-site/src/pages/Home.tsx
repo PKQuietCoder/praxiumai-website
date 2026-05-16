@@ -143,7 +143,7 @@ export default function Home() {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative text-[15px] font-semibold tracking-tight opacity-90 hover:opacity-100 transition-opacity after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-left after:bg-current after:transition-transform hover:after:scale-x-100"
+                className="relative text-base font-medium opacity-90 hover:opacity-100 transition-opacity after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-left after:bg-current after:transition-transform hover:after:scale-x-100"
                 data-testid={`nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 {item.label}
