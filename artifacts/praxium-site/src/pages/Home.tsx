@@ -34,7 +34,7 @@ import feature3Img from "@assets/praxium/personalization.png";
 import feature4Img from "@assets/praxium/in-workflow-learning.png";
 import feature5Img from "@assets/praxium/skill-assessment.png";
 import heroProductImage from "@assets/image_1778677837312.png";
-import lgNovaLogo from "@assets/lg_lg_nova_1778899532844.png";
+import lgNovaLogo from "@assets/lg_lg_nova_1778899717963.png";
 import nvidiaInceptionLogo from "@assets/nvidia-inception-program-badge-rgb-for-screen_1778899479113.png";
 
 const fadeInUp = {
