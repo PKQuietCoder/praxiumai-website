@@ -152,7 +152,7 @@ export default function Home() {
               <motion.p 
                 variants={fadeInUp}
                 className="text-base sm:text-lg lg:text-xl text-primary-foreground/90 leading-relaxed mb-8 sm:mb-10 max-w-xl"
-              >PraxiumAI turns them into multimedia courses your customers and colleagues actually finish — grounded in learning science, built for the agentic era.</motion.p>
+              >PraxiumAI turns them into multimedia modules your customers and colleagues actually use — grounded in learning science, built for the agentic era.</motion.p>
               <motion.div variants={fadeInUp}>
                 <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] text-lg font-medium h-14 px-8 shadow-lg transition-transform hover:-translate-y-0.5">
