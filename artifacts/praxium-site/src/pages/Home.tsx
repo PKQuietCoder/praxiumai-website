@@ -391,7 +391,7 @@ export default function Home() {
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex gap-6 lg:gap-8 touch-pan-y">
                 {[
-                  { img: feature1Img, eyebrow: "AI-Powered Course Creation", lead: "Start with your docs and expertise. Let AI build the rest.", body: "Turn complex PDFs, slides, and SOPs into rich, interactive courses with quizzes—with manual updating." },
+                  { img: feature1Img, eyebrow: "AI-Powered Course Creation", lead: "Start with your docs and expertise. Let AI build the rest.", body: "Turn complex PDFs, slides, and SOPs into rich, interactive modules with quizzes—with manual updating." },
                   { img: feature2Img, eyebrow: "Built-in Accuracy and Trust", lead: "Course quality you don't have to second-guess.", body: "Every lesson backed by learning science, with technical attribution and grounded generation—easy to audit and verify." },
                   { img: feature3Img, eyebrow: "Total Personalization", lead: "One course. Infinite versions.", body: "Personalize by role and experience, then let learners choose their format—video, diagrams, slides, or an AI tutor." },
                   { img: feature4Img, eyebrow: "In-Workflow Learning", lead: "Training that comes to you", body: "With MCP, Plugins, and API, embed learning directly into tools and workflows—no detours, no context switching." },
