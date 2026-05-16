@@ -563,7 +563,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 p-2 sm:p-4 lg:p-6"
           >
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible defaultValue="faq-0" className="w-full">
               {[
                 {
                   q: "How do I get started?",
