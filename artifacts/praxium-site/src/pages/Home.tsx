@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X, Linkedin, Instagram } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -782,7 +782,27 @@ export default function Home() {
             <img src={logoWhite} alt="PraxiumAI" className="h-6 opacity-90" />
             <span className="text-white/60 text-sm">© PraxiumAI</span>
           </div>
-          <div>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://www.linkedin.com/company/113215291/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="PraxiumAI on LinkedIn"
+              className="text-white/70 hover:text-white transition-colors"
+              data-testid="link-social-linkedin"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/getpraxiumai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="PraxiumAI on Instagram"
+              className="text-white/70 hover:text-white transition-colors"
+              data-testid="link-social-instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
             <a
               href="https://privacy.us.lg.com/policies"
               target="_blank"
