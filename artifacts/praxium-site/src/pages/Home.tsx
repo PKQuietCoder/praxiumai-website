@@ -652,7 +652,7 @@ export default function Home() {
               className="inline-block bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-5"
               data-testid="pricing-intro-badge"
             >
-              Introductory pricing · through August 2026
+              Introductory pricing · through July 2026
             </motion.span>
             <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               Simple, transparent pricing
@@ -817,7 +817,7 @@ export default function Home() {
             transition={{ duration: 0.4 }}
             data-testid="pricing-intro-note"
           >
-            <span className="font-medium text-gray-700">Introductory pricing — locked in through August 2026.</span>{" "}
+            <span className="font-medium text-gray-700">Introductory pricing — locked in through July 2026.</span>{" "}
             PraxiumAI will be moving to a monthly subscription with usage-based credit packs priced
             on learning and edit-update usage. Customers who join during this quarter keep these
             rates through the transition, as a thank-you for being early.
