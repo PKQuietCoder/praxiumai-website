@@ -223,29 +223,26 @@ export default function Home() {
       </section>
 
       {/* Trust Banner */}
-      <section className="bg-gray-50 border-y border-gray-100 py-8 lg:py-10">
-        <div className="container mx-auto px-6 max-w-6xl">
+      <section className="bg-white py-12 lg:py-16">
+        <div className="container mx-auto px-6 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center gap-5 sm:gap-6"
+            className="mx-auto max-w-4xl border-y border-gray-200 py-8 lg:py-10"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-500">
-              Backed by
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-16 lg:gap-x-20">
+            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-20 lg:gap-x-28">
               <img
                 src={lgNovaLogo}
                 alt="LG / LG Nova"
-                className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
                 data-testid="trust-logo-lg-nova"
               />
               <img
                 src={nvidiaInceptionLogo}
                 alt="NVIDIA Inception Program"
-                className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
+                className="h-20 sm:h-24 lg:h-28 w-auto object-contain"
                 data-testid="trust-logo-nvidia-inception"
               />
             </div>
