@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X, Linkedin, Instagram } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X, Linkedin, Instagram, Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import {
   Accordion,
   AccordionContent,
@@ -112,25 +113,130 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary">
       {/* Header */}
-      <header 
+      <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled ? "bg-white shadow-sm py-4" : "bg-transparent py-6"
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-3">
-          <div className="flex-shrink-0 min-w-0">
+          <a href="#top" className="flex-shrink-0 min-w-0" aria-label="PraxiumAI home">
             <img
               src={logoWhite}
               alt="PraxiumAI"
               className={`h-7 sm:h-8 transition-all duration-300 ${isScrolled ? "brightness-0" : ""}`}
             />
-          </div>
-          <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-            <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-10 sm:h-11 px-4 sm:px-6 text-sm sm:text-base shadow-md transition-transform hover:-translate-y-0.5">
-              Request Access
-              <ArrowUpRight className="ml-1.5 sm:ml-2 h-4 w-4" />
-            </Button>
           </a>
+
+          {/* Desktop nav */}
+          <nav
+            className={`hidden md:flex items-center gap-7 lg:gap-9 text-sm font-medium transition-colors ${
+              isScrolled ? "text-gray-700" : "text-white/90"
+            }`}
+            aria-label="Primary"
+          >
+            {[
+              { label: "Features", href: "#features" },
+              { label: "Why PraxiumAI", href: "#why" },
+              { label: "Pricing", href: "#pricing" },
+              { label: "FAQ", href: "#faq" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`transition-colors hover:${isScrolled ? "text-primary" : "text-white"} ${
+                  isScrolled ? "hover:text-primary" : "hover:text-white"
+                }`}
+                data-testid={`nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+            <a
+              href="https://app.getpraxium.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hidden md:inline-block text-sm font-medium transition-colors ${
+                isScrolled ? "text-gray-700 hover:text-primary" : "text-white/90 hover:text-white"
+              }`}
+              data-testid="nav-link-sign-in"
+            >
+              Sign in
+            </a>
+            <a
+              href="https://app.getpraxium.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-block"
+            >
+              <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-10 sm:h-11 px-4 sm:px-6 text-sm sm:text-base shadow-md transition-transform hover:-translate-y-0.5">
+                Request Access
+                <ArrowUpRight className="ml-1.5 sm:ml-2 h-4 w-4" />
+              </Button>
+            </a>
+
+            {/* Mobile hamburger */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Open menu"
+                  className={`md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md transition-colors ${
+                    isScrolled
+                      ? "text-gray-700 hover:bg-gray-100"
+                      : "text-white hover:bg-white/10"
+                  }`}
+                  data-testid="button-mobile-menu"
+                >
+                  <Menu className="h-6 w-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[85vw] max-w-sm bg-white p-0">
+                <SheetTitle className="sr-only">Menu</SheetTitle>
+                <div className="flex flex-col h-full">
+                  <div className="px-6 py-6 border-b border-gray-100">
+                    <img src={logoWhite} alt="PraxiumAI" className="h-7 brightness-0" />
+                  </div>
+                  <nav className="flex-1 px-6 py-6 flex flex-col gap-1" aria-label="Mobile">
+                    {[
+                      { label: "Features", href: "#features" },
+                      { label: "Why PraxiumAI", href: "#why" },
+                      { label: "Pricing", href: "#pricing" },
+                      { label: "FAQ", href: "#faq" },
+                    ].map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="text-base font-medium text-gray-800 hover:text-primary py-3 border-b border-gray-100"
+                        data-testid={`mobile-nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </nav>
+                  <div className="px-6 py-6 border-t border-gray-100 flex flex-col gap-3">
+                    <a
+                      href="https://app.getpraxium.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-center text-sm font-medium text-gray-700 hover:text-primary py-2"
+                      data-testid="mobile-nav-link-sign-in"
+                    >
+                      Sign in
+                    </a>
+                    <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-11 shadow-md">
+                        Request Access
+                        <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
       {/* Hero Section */}
@@ -370,7 +476,7 @@ export default function Home() {
         </div>
       </section>
       {/* Features Carousel */}
-      <section className="bg-white py-20 lg:py-32">
+      <section id="features" className="bg-white py-20 lg:py-32 scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div 
             className="mb-16 lg:mb-24"
@@ -442,7 +548,7 @@ export default function Home() {
         </div>
       </section>
       {/* Why PraxiumAI - Differentiators */}
-      <section className="bg-gray-50 py-20 lg:py-32">
+      <section id="why" className="bg-gray-50 py-20 lg:py-32 scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div
             className="text-center mb-12 lg:mb-16"
@@ -554,7 +660,7 @@ export default function Home() {
         </div>
       </section>
       {/* Pricing */}
-      <section className="bg-white py-20 lg:py-32" id="pricing">
+      <section id="pricing" className="bg-white py-20 lg:py-32 scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div
             className="text-center mb-12 lg:mb-16"
@@ -737,7 +843,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-gray-50 py-20 lg:py-32">
+      <section id="faq" className="bg-gray-50 py-20 lg:py-32 scroll-mt-24">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div
             className="text-center mb-12 lg:mb-16"
