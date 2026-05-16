@@ -553,8 +553,185 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      {/* Pricing */}
+      <section className="bg-white py-20 lg:py-32" id="pricing">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <motion.div
+            className="text-center mb-12 lg:mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Simple, transparent pricing
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+              Start free. Upgrade when you're ready to publish and scale.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {[
+              {
+                name: "Free",
+                tagline: "Explore the platform, free",
+                price: "$0",
+                priceSuffix: "",
+                features: [
+                  "1 draft",
+                  "Up to 100 pages per course",
+                  "Formats: PDF, Doc, Docx, PPT, PPTx",
+                  "AI tutor / chatbot",
+                  "Guided intake interview",
+                  "Max 30 min per course",
+                ],
+                cta: "Get started",
+                ctaHref: "https://app.getpraxium.ai/",
+                ctaVariant: "outline" as const,
+                highlighted: false,
+              },
+              {
+                name: "Starter",
+                tagline: "Perfect for getting started",
+                price: "$99",
+                priceSuffix: "one-time",
+                features: [
+                  "Publish up to 1 course",
+                  "3 drafts",
+                  "Up to 300 pages per course",
+                  "Formats: PDF, Doc, Docx, PPT, PPTx",
+                  "AI tutor / chatbot",
+                  "Guided intake interview",
+                  "Max 1 hour per course",
+                ],
+                cta: "Buy Starter — $99",
+                ctaHref: "https://app.getpraxium.ai/",
+                ctaVariant: "outline" as const,
+                highlighted: false,
+              },
+              {
+                name: "Pro",
+                tagline: "Built for power users and teams",
+                price: "$199",
+                priceSuffix: "one-time",
+                features: [
+                  "Publish up to 3 courses",
+                  "12 drafts",
+                  "Up to 500 pages per course",
+                  "Formats: PDF, Doc, Docx, PPT, PPTx",
+                  "AI tutor / chatbot",
+                  "Guided intake interview",
+                  "Max 2 hours per course",
+                ],
+                cta: "Buy Pro — $199",
+                ctaHref: "https://app.getpraxium.ai/",
+                ctaVariant: "solid" as const,
+                highlighted: true,
+              },
+              {
+                name: "Enterprise",
+                tagline: "Built for scale",
+                price: "Custom",
+                priceSuffix: "",
+                features: [
+                  "More than 2 hours per course",
+                  "Automated quality control reports on AI-generated output",
+                  "Professional instructional designer review",
+                  "Custom branding",
+                  "Fine-tuned models",
+                  "Custom integrations and export",
+                  "Enterprise-grade security",
+                  "Support for your unique use cases",
+                ],
+                cta: "Contact us",
+                ctaHref: "mailto:contact@getpraxium.ai",
+                ctaVariant: "outline" as const,
+                highlighted: false,
+              },
+            ].map((tier, idx) => (
+              <motion.div
+                key={tier.name}
+                variants={fadeInUp}
+                className={`relative flex flex-col rounded-2xl bg-white p-7 lg:p-8 ${
+                  tier.highlighted
+                    ? "border-2 border-primary shadow-lg lg:-translate-y-2"
+                    : "border border-gray-200"
+                }`}
+                data-testid={`pricing-tier-${tier.name.toLowerCase()}`}
+              >
+                {tier.highlighted && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full">
+                    Most popular
+                  </span>
+                )}
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{tier.name}</h3>
+                  <p className="text-sm text-gray-600 mb-5 min-h-[2.5rem]">{tier.tagline}</p>
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className={`font-extrabold ${tier.price === "Custom" ? "text-4xl" : "text-5xl"} text-gray-900`}>
+                      {tier.price}
+                    </span>
+                  </div>
+                  {tier.priceSuffix && (
+                    <p className="text-xs text-gray-500 mt-1">{tier.priceSuffix}</p>
+                  )}
+                </div>
+                <ul className="space-y-3 flex-1 mb-7 border-t border-gray-100 pt-6">
+                  {tier.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={tier.ctaHref}
+                  target={tier.ctaHref.startsWith("http") ? "_blank" : undefined}
+                  rel={tier.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="mt-auto"
+                  data-testid={`pricing-cta-${tier.name.toLowerCase()}`}
+                >
+                  <Button
+                    className={`w-full rounded-[7px] h-11 font-medium ${
+                      tier.ctaVariant === "solid"
+                        ? "bg-primary hover:bg-primary/90 text-white"
+                        : "bg-white border border-gray-300 text-gray-900 hover:bg-gray-50"
+                    }`}
+                  >
+                    {tier.cta}
+                  </Button>
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            className="text-center text-sm text-gray-500 mt-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
+            Have questions?{" "}
+            <a
+              href="mailto:contact@getpraxium.ai"
+              className="text-primary hover:underline font-medium"
+            >
+              Contact support
+            </a>
+          </motion.p>
+        </div>
+      </section>
+
       {/* FAQ */}
-      <section className="bg-white py-20 lg:py-32">
+      <section className="bg-gray-50 py-20 lg:py-32">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div
             className="text-center mb-12 lg:mb-16"
