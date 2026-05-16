@@ -1022,10 +1022,12 @@ export default function Home() {
                         that audience: the people who would otherwise have no support at all.
                       </p>
                       <p>
-                        For teams that do work with professional instructional designers, PraxiumAI is the strongest
-                        tool we know of to amplify that expertise rather than replace it — and in cases where
-                        clients have asked for it, we've supplied instructional design support directly alongside
-                        the platform. The goal is more good learning in the world, not fewer designers.
+                        For teams that want a human expert in the loop, we also offer professional instructional
+                        design support directly — delivered by experienced instructional designers and billed at an
+                        hourly rate. We know AI isn't perfect, and for higher-stakes courses a real ID can make the
+                        difference between content that's "fine" and content that actually changes behavior.
+                        PraxiumAI's job is to amplify that expertise, not replace it — the goal is more good
+                        learning in the world, not fewer designers.
                       </p>
                     </>
                   )
