@@ -981,6 +981,33 @@ export default function Home() {
                       providers are SOC 2 Type 2 certified.
                     </>
                   )
+                },
+                {
+                  q: "Does this replace the need for instructional designers?",
+                  a: (
+                    <>
+                      <p className="mb-3">
+                        No — and we want to be careful here, because professional instructional designers are the
+                        reason real learning happens in most organizations that can afford them. PraxiumAI is not
+                        built to push them out of a job. It's built for everyone the current market quietly leaves
+                        behind.
+                      </p>
+                      <p className="mb-3">
+                        Most experienced instructional designers, freelancers, and training vendors won't take on
+                        projects under roughly $10,000 — and they're right not to, given what serious course design
+                        actually costs to do well. The result is that SMEs, sales enablement teams, and internal
+                        experts end up shipping dense, text-heavy decks and PDFs that may or may not land, simply
+                        because hiring a professional isn't an option for the budget they have. PraxiumAI is for
+                        that audience: the people who would otherwise have no support at all.
+                      </p>
+                      <p>
+                        For teams that do work with professional instructional designers, PraxiumAI is the strongest
+                        tool we know of to amplify that expertise rather than replace it — and in cases where
+                        clients have asked for it, we've supplied instructional design support directly alongside
+                        the platform. The goal is more good learning in the world, not fewer designers.
+                      </p>
+                    </>
+                  )
                 }
               ].map((item, i) => (
                 <AccordionItem
