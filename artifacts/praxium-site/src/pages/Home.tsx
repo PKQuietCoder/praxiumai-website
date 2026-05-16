@@ -603,10 +603,10 @@ export default function Home() {
                   q: "What's the difference between a creator and a learner?",
                   a: (
                     <>
-                      A creator builds courses: they upload source material, configure structure, and invite people in.
-                      A learner takes the course: they work through lessons, ask the AI tutor questions, and track their
-                      own progress. One account, two distinct roles — and a creator can also be a learner in someone
-                      else's course.
+                      A creator builds multimedia modules: they upload source material, configure structure, and invite
+                      people in. A learner takes the course: they work through the modules and lessons, ask the AI tutor
+                      questions, and track their own progress. One account, two distinct roles — and a creator can also
+                      be a learner in someone else's course.
                     </>
                   )
                 },
