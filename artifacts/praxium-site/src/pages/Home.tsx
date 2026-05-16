@@ -588,7 +588,6 @@ export default function Home() {
                   "1 draft",
                   "Up to 100 pages per course",
                   "Formats: PDF, Doc, Docx, PPT, PPTx",
-                  "AI tutor / chatbot",
                   "Guided intake interview",
                   "Max 30 min per course",
                 ],
@@ -601,6 +600,7 @@ export default function Home() {
                 name: "Starter",
                 tagline: "Perfect for getting started",
                 price: "$99",
+                priceOriginal: "$499",
                 priceSuffix: "one-time",
                 features: [
                   "Publish up to 1 course",
@@ -620,6 +620,7 @@ export default function Home() {
                 name: "Pro",
                 tagline: "Built for power users and teams",
                 price: "$199",
+                priceOriginal: "$999",
                 priceSuffix: "one-time",
                 features: [
                   "Publish up to 3 courses",
@@ -678,6 +679,11 @@ export default function Home() {
                     <span className={`font-extrabold ${tier.price === "Custom" ? "text-4xl" : "text-5xl"} text-gray-900`}>
                       {tier.price}
                     </span>
+                    {"priceOriginal" in tier && tier.priceOriginal && (
+                      <span className="text-xl font-semibold text-gray-400 line-through">
+                        {tier.priceOriginal}
+                      </span>
+                    )}
                   </div>
                   {tier.priceSuffix && (
                     <p className="text-xs text-gray-500 mt-1">{tier.priceSuffix}</p>
