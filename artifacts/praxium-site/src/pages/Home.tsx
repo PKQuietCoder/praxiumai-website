@@ -131,7 +131,6 @@ export default function Home() {
           </a>
         </div>
       </header>
-
       {/* Hero Section */}
       <section className="relative bg-primary pt-28 sm:pt-32 pb-32 sm:pb-48 lg:pt-40 lg:pb-56 overflow-hidden hero-grid">
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -220,7 +219,6 @@ export default function Home() {
           </svg>
         </div>
       </section>
-
       {/* Tagline Strip */}
       <section className="bg-white py-16 lg:py-24">
         <div className="container mx-auto px-6 max-w-4xl text-center">
@@ -235,7 +233,6 @@ export default function Home() {
           </motion.h2>
         </div>
       </section>
-
       {/* Three Icons Row */}
       <section className="bg-white pb-20 lg:pb-32">
         <div className="container mx-auto px-6 max-w-6xl">
@@ -261,7 +258,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Results that matter */}
       <section className="bg-white py-20 lg:py-32 border-t border-gray-100">
         <div className="container mx-auto px-6 max-w-6xl">
@@ -307,7 +303,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Three simple steps */}
       <section className="bg-secondary py-20 lg:py-32">
         <div className="container mx-auto px-6 max-w-7xl">
@@ -351,7 +346,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Features Carousel */}
       <section className="bg-white py-20 lg:py-32">
         <div className="container mx-auto px-6 max-w-7xl">
@@ -424,7 +418,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Why PraxiumAI - Differentiators */}
       <section className="bg-gray-50 py-20 lg:py-32">
         <div className="container mx-auto px-6 max-w-7xl">
@@ -537,7 +530,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* FAQ */}
       <section className="bg-white py-20 lg:py-32">
         <div className="container mx-auto px-6 max-w-4xl">
@@ -619,9 +611,7 @@ export default function Home() {
                         rates. PraxiumAI does not cut corners to achieve that speed; it automates the execution so
                         human attention can stay focused on judgment, validation, and strategic design.
                       </p>
-                      <p className="mb-3">
-                        Within that hour, there are four short checkpoints where your input is needed:
-                      </p>
+                      <p className="mb-3">There are four short checkpoints early on where your input is needed:</p>
                       <ol className="list-decimal pl-5 space-y-2 mb-3">
                         <li>Upload your source documents to start the course.</li>
                         <li>
@@ -739,7 +729,6 @@ export default function Home() {
           </motion.p>
         </div>
       </section>
-
       {/* Closing CTA */}
       <section className="bg-primary py-24 text-center">
         <div className="container mx-auto px-6 max-w-4xl">
@@ -763,7 +752,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-[#0b3334] py-12 border-t border-white/10">
         <div className="container mx-auto px-6 max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
@@ -783,7 +771,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
       {/* Product Intro Video Modal */}
       <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
         <DialogContent
