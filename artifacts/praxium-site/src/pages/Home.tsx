@@ -253,9 +253,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
             className="text-2xl lg:text-4xl font-semibold text-gray-900 leading-tight"
-          >
-            Upload PDFs and take an intake interview. PraxiumAI then builds rich personalized interactive courses with assessments.
-          </motion.h2>
+          >Upload PDFs and take an intake interview. PraxiumAI then builds rich personalized interactive modules with assessments.</motion.h2>
         </div>
       </section>
       {/* Three Icons Row */}
