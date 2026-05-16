@@ -869,21 +869,15 @@ export default function Home() {
             <Accordion type="single" collapsible defaultValue="faq-0" className="w-full">
               {[
                 {
-                  q: "How do I get started?",
+                  q: "What is PraxiumAI and what does it actually do?",
                   a: (
                     <>
-                      The fastest path is a product demo — no slide deck, no pitch, just the product with your actual
-                      use case as the context. We'll look at a real challenge you're facing, walk through how
-                      PraxiumAI would approach it, and show you the quality of the output on something built for a
-                      situation like yours. Email{" "}
-                      <a
-                        href="mailto:pk@getpraxium.ai"
-                        className="text-primary font-semibold hover:text-primary/80 underline underline-offset-4"
-                        data-testid="link-faq-getting-started-email"
-                      >
-                        pk@getpraxium.ai
-                      </a>{" "}
-                      to book a slot — every inquiry gets a personal response.
+                      PraxiumAI is an AI-powered training course creation platform. It transforms your existing
+                      documents and subject matter expertise into complete, evidence-based, interactive technical
+                      training courses — in approximately one hour. Unlike tools that simply convert documents into
+                      content, PraxiumAI starts with learner analysis and skill decomposition before generating a
+                      single word of content, ensuring every course is calibrated to produce real behavioral change on
+                      the job.
                     </>
                   )
                 },
@@ -895,19 +889,6 @@ export default function Home() {
                       people in. A learner takes the course: they work through the modules and lessons, ask the AI tutor
                       questions, and track their own progress. One account, two distinct roles — and a creator can also
                       be a learner in someone else's course.
-                    </>
-                  )
-                },
-                {
-                  q: "What is PraxiumAI and what does it actually do?",
-                  a: (
-                    <>
-                      PraxiumAI is an AI-powered training course creation platform. It transforms your existing
-                      documents and subject matter expertise into complete, evidence-based, interactive technical
-                      training courses — in approximately one hour. Unlike tools that simply convert documents into
-                      content, PraxiumAI starts with learner analysis and skill decomposition before generating a
-                      single word of content, ensuring every course is calibrated to produce real behavioral change on
-                      the job.
                     </>
                   )
                 },
@@ -947,16 +928,6 @@ export default function Home() {
                   )
                 },
                 {
-                  q: "How do creators add learners to a course?",
-                  a: (
-                    <>
-                      From the creator dashboard, open the Learners tab and send an invite by email. Invited learners
-                      click the link, sign in, and land directly in the course. You can revoke access from the same
-                      dashboard at any time.
-                    </>
-                  )
-                },
-                {
                   q: "What kinds of content can a creator produce?",
                   a: (
                     <>
@@ -966,6 +937,17 @@ export default function Home() {
                       video, and avatar-presented video — all derived from your source material and editable inline.
                       The visual language is intentionally minimal: the goal is a calm, distraction-free surface that
                       keeps the learner focused on the material.
+                    </>
+                  )
+                },
+                {
+                  q: "What kinds of quizzes does PraxiumAI support?",
+                  a: (
+                    <>
+                      Every lesson includes short inline checks — fill-the-blank, matching, and ordering exercises,
+                      plus predict-before-reveal worked examples — designed to build reasoning as the learner reads.
+                      Each lesson then closes with a multiple-choice quiz. Only the multiple-choice quiz is graded; the
+                      inline checks are formative practice and don't affect a learner's score.
                     </>
                   )
                 },
@@ -983,13 +965,12 @@ export default function Home() {
                   )
                 },
                 {
-                  q: "What kinds of quizzes does PraxiumAI support?",
+                  q: "How do creators add learners to a course?",
                   a: (
                     <>
-                      Every lesson includes short inline checks — fill-the-blank, matching, and ordering exercises,
-                      plus predict-before-reveal worked examples — designed to build reasoning as the learner reads.
-                      Each lesson then closes with a multiple-choice quiz. Only the multiple-choice quiz is graded; the
-                      inline checks are formative practice and don't affect a learner's score.
+                      From the creator dashboard, open the Learners tab and send an invite by email. Invited learners
+                      click the link, sign in, and land directly in the course. You can revoke access from the same
+                      dashboard at any time.
                     </>
                   )
                 },
@@ -1029,6 +1010,25 @@ export default function Home() {
                         PraxiumAI's job is to amplify that expertise, not replace it — the goal is more good
                         learning in the world, not fewer designers.
                       </p>
+                    </>
+                  )
+                },
+                {
+                  q: "How do I get started?",
+                  a: (
+                    <>
+                      The fastest path is a product demo — no slide deck, no pitch, just the product with your actual
+                      use case as the context. We'll look at a real challenge you're facing, walk through how
+                      PraxiumAI would approach it, and show you the quality of the output on something built for a
+                      situation like yours. Email{" "}
+                      <a
+                        href="mailto:pk@getpraxium.ai"
+                        className="text-primary font-semibold hover:text-primary/80 underline underline-offset-4"
+                        data-testid="link-faq-getting-started-email"
+                      >
+                        pk@getpraxium.ai
+                      </a>{" "}
+                      to book a slot — every inquiry gets a personal response.
                     </>
                   )
                 }
