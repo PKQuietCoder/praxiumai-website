@@ -154,9 +154,7 @@ export default function Home() {
               <motion.p 
                 variants={fadeInUp}
                 className="text-base sm:text-lg lg:text-xl text-primary-foreground/90 leading-relaxed mb-8 sm:mb-10 max-w-xl"
-              >
-                PraxiumAI captures your expertise and complex docs and transforms them into personalized upskilling experiences grounded in learning science. Built for the agentic era.
-              </motion.p>
+              >PraxiumAI captures your expertise and technical docs and turns them into multimedia learning experiences grounded in learning science. Built for the agentic era.</motion.p>
               <motion.div variants={fadeInUp}>
                 <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] text-lg font-medium h-14 px-8 shadow-lg transition-transform hover:-translate-y-0.5">
@@ -221,7 +219,6 @@ export default function Home() {
           </svg>
         </div>
       </section>
-
       {/* Trust Banner */}
       <section className="bg-white py-12 lg:py-16">
         <div className="container mx-auto px-6 max-w-5xl">
@@ -249,7 +246,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Tagline Strip */}
       <section className="bg-white py-16 lg:py-24">
         <div className="container mx-auto px-6 max-w-4xl text-center">
