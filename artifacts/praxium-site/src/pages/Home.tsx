@@ -34,6 +34,8 @@ import feature3Img from "@assets/praxium/personalization.png";
 import feature4Img from "@assets/praxium/in-workflow-learning.png";
 import feature5Img from "@assets/praxium/skill-assessment.png";
 import heroProductImage from "@assets/image_1778677837312.png";
+import lgNovaLogo from "@assets/lg_lg_nova_1778899532844.png";
+import nvidiaInceptionLogo from "@assets/nvidia-inception-program-badge-rgb-for-screen_1778899479113.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -219,6 +221,38 @@ export default function Home() {
           </svg>
         </div>
       </section>
+
+      {/* Trust Banner */}
+      <section className="bg-gray-50 border-y border-gray-100 py-8 lg:py-10">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center gap-5 sm:gap-6"
+          >
+            <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-500">
+              Backed by
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-16 lg:gap-x-20">
+              <img
+                src={lgNovaLogo}
+                alt="LG / LG Nova"
+                className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                data-testid="trust-logo-lg-nova"
+              />
+              <img
+                src={nvidiaInceptionLogo}
+                alt="NVIDIA Inception Program"
+                className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
+                data-testid="trust-logo-nvidia-inception"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Tagline Strip */}
       <section className="bg-white py-16 lg:py-24">
         <div className="container mx-auto px-6 max-w-4xl text-center">
