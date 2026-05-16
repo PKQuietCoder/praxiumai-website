@@ -148,7 +148,7 @@ export default function Home() {
               <motion.h1 
                 variants={fadeInUp}
                 className="text-[2rem] sm:text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-6"
-              >Your customers and colleagues do not read your datasheets and decks</motion.h1>
+              >No one reads your datasheets, manuals and decks</motion.h1>
               <motion.p 
                 variants={fadeInUp}
                 className="text-base sm:text-lg lg:text-xl text-primary-foreground/90 leading-relaxed mb-8 sm:mb-10 max-w-xl"
