@@ -421,7 +421,7 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Three simple steps to smarter training
+              Three simple steps to smarter knowledge transfer
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               Upload, review with built-in sources, then personalize and publish in any format.
