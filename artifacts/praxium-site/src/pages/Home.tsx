@@ -475,9 +475,9 @@ export default function Home() {
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex gap-6 lg:gap-8 touch-pan-y">
                 {[
-                  { img: feature1Img, eyebrow: "AI-Powered Course Creation", lead: "Start with your docs and expertise. Let AI build the rest.", body: "Turn complex PDFs, slides, and SOPs into rich, interactive modules with quizzes—with manual updating." },
-                  { img: feature2Img, eyebrow: "Built-in Accuracy and Trust", lead: "Course quality you don't have to second-guess.", body: "Every lesson backed by learning science, with technical attribution and grounded generation—easy to audit and verify." },
-                  { img: feature3Img, eyebrow: "Total Personalization", lead: "One course. Infinite versions.", body: "Personalize by role and experience, then let learners choose their format—video, diagrams, slides, or an AI tutor." },
+                  { img: feature1Img, eyebrow: "AI-Powered Module Creation", lead: "Start with your docs and expertise. Let AI build the rest.", body: "Turn complex PDFs, slides, and SOPs into rich, interactive modules with quizzes—with manual updating." },
+                  { img: feature2Img, eyebrow: "Built-in Accuracy and Trust", lead: "Module quality you don't have to second-guess.", body: "Every lesson backed by learning science, with technical attribution and grounded generation—easy to audit and verify." },
+                  { img: feature3Img, eyebrow: "Total Personalization", lead: "One module. Infinite versions.", body: "Personalize by role and experience, then let learners choose their format—video, diagrams, slides, or an AI tutor." },
                   { img: feature4Img, eyebrow: "In-Workflow Learning", lead: "Training that comes to you", body: "With MCP, Plugins, and API, embed learning directly into tools and workflows—no detours, no context switching." },
                   { img: feature5Img, eyebrow: "Rigorous Skill Modeling", lead: "Measure mastery, and gaps", body: "Auto-generated skill modeling and assessments target specific skill gaps with priority rankings giving you verifiable learning outcomes." }
                 ].map((feat, i) => (
@@ -680,7 +680,6 @@ export default function Home() {
                   "Up to 100 pages per course",
                   "Formats: PDF, Doc, Docx, PPT, PPTx",
                   "Guided intake interview",
-                  "Max 30 min per course",
                 ],
                 cta: "Get started",
                 ctaHref: "https://app.getpraxium.ai/",
@@ -700,7 +699,6 @@ export default function Home() {
                   "Formats: PDF, Doc, Docx, PPT, PPTx",
                   "AI tutor / chatbot",
                   "Guided intake interview",
-                  "Max 1 hour per course",
                 ],
                 cta: "Buy Starter — $99",
                 ctaHref: "https://app.getpraxium.ai/",
@@ -720,7 +718,6 @@ export default function Home() {
                   "Formats: PDF, Doc, Docx, PPT, PPTx",
                   "AI tutor / chatbot",
                   "Guided intake interview",
-                  "Max 2 hours per course",
                 ],
                 cta: "Buy Pro — $199",
                 ctaHref: "https://app.getpraxium.ai/",
@@ -733,7 +730,6 @@ export default function Home() {
                 price: "Custom",
                 priceSuffix: "",
                 features: [
-                  "More than 2 hours per course",
                   "Automated quality control reports on AI-generated output",
                   "Professional instructional designer review",
                   "Custom branding",
@@ -810,7 +806,18 @@ export default function Home() {
           </motion.div>
 
           <motion.p
-            className="text-center text-sm text-gray-500 mt-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-center text-sm text-gray-500 mt-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            data-testid="pricing-module-note"
+          >
+            A course typically consists of 8–12 modules, each roughly 10–20 minutes long.
+          </motion.p>
+
+          <motion.p
+            className="text-center text-sm text-gray-500 mt-6 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -872,12 +879,25 @@ export default function Home() {
                   q: "What is PraxiumAI and what does it actually do?",
                   a: (
                     <>
-                      PraxiumAI is an AI-powered training course creation platform. It transforms your existing
-                      documents and subject matter expertise into complete, evidence-based, interactive technical
-                      training courses — in approximately one hour. Unlike tools that simply convert documents into
-                      content, PraxiumAI starts with learner analysis and skill decomposition before generating a
-                      single word of content, ensuring every course is calibrated to produce real behavioral change on
-                      the job.
+                      PraxiumAI is an AI-powered platform that turns your documents and subject matter expertise into
+                      interactive courses and modules — for technical training, marketing enablement, customer success,
+                      onboarding, and more. It produces complete, evidence-based content in approximately one hour.
+                      Unlike tools that simply convert documents into content, PraxiumAI starts with audience analysis
+                      and skill decomposition before generating a single word of content, ensuring every module is
+                      calibrated to produce real behavioral change on the job.
+                    </>
+                  )
+                },
+                {
+                  q: "What's a module, and how is it structured?",
+                  a: (
+                    <>
+                      A module is a focused 10–20 minute unit of content, made up of lessons and key points. A key point
+                      is the atomic unit of learning, roughly 3–5 minutes, and is anchored to a specific behavioral or
+                      learning objective, so the learner walks away able to do something concrete, not just recall facts.
+                      Modules can be strung together for full training programs or used on their own for marketing
+                      explainers, customer success walkthroughs, onboarding, or product enablement — anywhere a short,
+                      objective-driven piece of content is the right fit.
                     </>
                   )
                 },
