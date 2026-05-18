@@ -892,11 +892,12 @@ export default function Home() {
                   q: "What's a module, and how is it structured?",
                   a: (
                     <>
-                      A module is a focused 10–20 minute unit of content, made up of lessons and key points. A key point
-                      is the atomic unit of learning, roughly 3–5 minutes, and is anchored to a specific behavioral or
-                      learning objective, so the learner walks away able to do something concrete, not just recall facts.
-                      Modules can be strung together for full training programs or used on their own for marketing
-                      explainers, customer success walkthroughs, onboarding, or product enablement — anywhere a short,
+                      A course typically consists of 8–12 modules, each roughly 10–20 minutes long. Each module is a
+                      focused unit of content made up of lessons and key points. A key point is the atomic unit of
+                      learning, roughly 3–5 minutes, and is anchored to a specific behavioral or learning objective,
+                      so the learner walks away able to do something concrete, not just recall facts. Modules can be
+                      strung together for full training programs or used on their own for marketing explainers,
+                      customer success walkthroughs, onboarding, or product enablement, anywhere a short,
                       objective-driven piece of content is the right fit.
                     </>
                   )
@@ -905,10 +906,10 @@ export default function Home() {
                   q: "What's the difference between a creator and a learner?",
                   a: (
                     <>
-                      A creator builds multimedia modules: they upload source material, configure structure, and invite
-                      people in. A learner takes the course: they work through the modules and lessons, ask the AI tutor
-                      questions, and track their own progress. One account, two distinct roles — and a creator can also
-                      be a learner in someone else's course.
+                      A creator builds courses out of multimedia modules: they upload source material, configure
+                      structure, and invite people in. A learner takes the course: they work through its modules and
+                      lessons, ask the AI tutor questions, and track their own progress. One account, two distinct
+                      roles — and a creator can also be a learner in someone else's course.
                     </>
                   )
                 },
