@@ -590,6 +590,20 @@ export default function Home() {
             <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               How PraxiumAI compares to other approaches across the capabilities that matter for technical training.
             </motion.p>
+            <motion.p variants={fadeInUp} className="mt-6 text-base lg:text-lg text-gray-600 max-w-3xl mx-auto text-left leading-relaxed">
+              We operationalize this vision through a few strategic differentiators. <strong className="font-semibold text-gray-900">Evidence-based frameworks</strong> make every course faithful and traceable — if content drifts off-target or a learner gets stuck, we can trace it to a cause. Creators invest more time upfront than with doc-to-course tools, but that investment saves significant time for every learner downstream. <strong className="font-semibold text-gray-900">In-workflow integration</strong> means creators and learners don't have to come to a new platform; our agents bring learning into the tools your teams already use. And a <strong className="font-semibold text-gray-900">persona-led front-end interview</strong> defines the learner, the instructional objectives, and the learning goals before any content is generated — so what gets built is focused, relevant, and personalized rather than generic.
+            </motion.p>
+            <motion.div variants={fadeInUp} className="mt-6 max-w-3xl mx-auto text-left">
+              <button
+                type="button"
+                onClick={() => openVideo(INTRO_VIDEO)}
+                className="inline-flex items-center gap-2 text-accent font-semibold hover:underline focus:outline-none focus-visible:underline"
+                data-testid="button-why-watch-intro-video"
+              >
+                <Play className="h-4 w-4 fill-accent" strokeWidth={1.5} />
+                Watch the intro video for the full walkthrough
+              </button>
+            </motion.div>
           </motion.div>
 
           <motion.div
