@@ -588,10 +588,7 @@ export default function Home() {
               Why PraxiumAI
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              Most tools optimize for one thing — speed, polish, or compliance — and trade away the rest.
-            </motion.p>
-            <motion.p variants={fadeInUp} className="mt-4 text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              PraxiumAI is built to be strong across every capability that matters for technical training.
+              Most tools optimize for one thing, whether speed, polish, or compliance, and trade away the rest, while PraxiumAI is built to be strong across every capability that matters for technical training.
             </motion.p>
           </motion.div>
 
