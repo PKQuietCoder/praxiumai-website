@@ -588,22 +588,11 @@ export default function Home() {
               Why PraxiumAI
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              How PraxiumAI compares to other approaches across the capabilities that matter for technical training.
+              Most tools optimize for one thing — speed, polish, or compliance — and trade away the rest.
             </motion.p>
-            <motion.p variants={fadeInUp} className="mt-6 text-base lg:text-lg text-gray-600 max-w-3xl mx-auto text-left leading-relaxed">
-              We operationalize this vision through a few strategic differentiators. <strong className="font-semibold text-gray-900">Evidence-based frameworks</strong> make every course faithful and traceable — if content drifts off-target or a learner gets stuck, we can trace it to a cause. Creators invest more time upfront than with doc-to-course tools, but that investment saves significant time for every learner downstream. <strong className="font-semibold text-gray-900">In-workflow integration</strong> means creators and learners don't have to come to a new platform; our agents bring learning into the tools your teams already use. And a <strong className="font-semibold text-gray-900">persona-led front-end interview</strong> defines the learner, the instructional objectives, and the learning goals before any content is generated — so what gets built is focused, relevant, and personalized rather than generic.
+            <motion.p variants={fadeInUp} className="mt-4 text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              PraxiumAI is built to be strong across every capability that matters for technical training.
             </motion.p>
-            <motion.div variants={fadeInUp} className="mt-6 max-w-3xl mx-auto text-left">
-              <button
-                type="button"
-                onClick={() => openVideo(INTRO_VIDEO)}
-                className="inline-flex items-center gap-2 text-accent font-semibold hover:underline focus:outline-none focus-visible:underline"
-                data-testid="button-why-watch-intro-video"
-              >
-                <Play className="h-4 w-4 fill-accent" strokeWidth={1.5} />
-                Watch the intro video for the full walkthrough
-              </button>
-            </motion.div>
           </motion.div>
 
           <motion.div
@@ -622,10 +611,9 @@ export default function Home() {
                     </th>
                     {[
                       { name: "PraxiumAI", sub: null, highlight: true },
-                      { name: "Agentic Apps", sub: "NotebookLM, Claude, …" },
+                      { name: "General-purpose AI", sub: "NotebookLM, ChatGPT, …" },
                       { name: "AI Copilots", sub: "PowerPoint copilot, …" },
-                      { name: "L&D Authoring", sub: "Articulate Rise 360, …" },
-                      { name: "New Startups", sub: null }
+                      { name: "L&D Authoring", sub: "Articulate Rise 360, …" }
                     ].map((col, i) => (
                       <th
                         key={i}
@@ -646,12 +634,12 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {[
-                    { row: "Evidence-based Frameworks",   ratings: ["best", "ok", "weak", "ok", "weak"] },
-                    { row: "Speed & Automation",          ratings: ["ok", "best", "ok", "best", "best"] },
-                    { row: "Multimedia Personalization",  ratings: ["best", "best", "weak", "ok", "ok"] },
-                    { row: "Rigorous Skill Modeling",     ratings: ["best", "ok", "weak", "ok", "weak"] },
-                    { row: "Faithfulness & Technical Grounding", ratings: ["best", "ok", "weak", "weak", "weak"] },
-                    { row: "In-workflow Integrations",    ratings: ["best", "weak", "ok", "best", "ok"] }
+                    { row: "Evidence-based frameworks",          ratings: ["best", "ok", "weak", "ok"] },
+                    { row: "Speed and automation",                ratings: ["ok", "best", "ok", "best"] },
+                    { row: "Multimedia personalization",          ratings: ["best", "best", "weak", "ok"] },
+                    { row: "Rigorous skill modeling",             ratings: ["best", "ok", "weak", "ok"] },
+                    { row: "Faithfulness and technical grounding", ratings: ["best", "ok", "weak", "weak"] },
+                    { row: "In-workflow integrations",            ratings: ["best", "weak", "ok", "best"] }
                   ].map((row, ri) => (
                     <tr key={ri} className="border-t border-gray-100">
                       <td className="p-5 lg:p-6 font-semibold text-gray-900 text-sm lg:text-base">
