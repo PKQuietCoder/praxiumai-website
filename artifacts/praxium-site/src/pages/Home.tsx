@@ -463,7 +463,7 @@ export default function Home() {
       <section className="bg-secondary py-20 lg:py-32">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div 
-            className="mb-16"
+            className="text-center mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -472,7 +472,7 @@ export default function Home() {
             <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               Three simple steps to smarter knowledge transfer
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl">
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               Upload, review with built-in sources, then personalize and publish in any format.
             </motion.p>
           </motion.div>
@@ -578,7 +578,7 @@ export default function Home() {
       <section id="why" className="bg-gray-50 py-20 lg:py-32 scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div
-            className="mb-12 lg:mb-16"
+            className="text-center mb-12 lg:mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -587,10 +587,10 @@ export default function Home() {
             <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               Why PraxiumAI
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl">
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               Most tools optimize for one thing — speed, polish, or compliance — and trade away the rest.
             </motion.p>
-            <motion.p variants={fadeInUp} className="mt-4 text-lg lg:text-xl text-gray-600 max-w-3xl">
+            <motion.p variants={fadeInUp} className="mt-4 text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               PraxiumAI is built to be strong across every capability that matters for technical training.
             </motion.p>
           </motion.div>
@@ -692,7 +692,7 @@ export default function Home() {
       <section id="pricing" className="bg-white py-20 lg:py-32 scroll-mt-24">
         <div className="container mx-auto px-6 max-w-7xl">
           <motion.div
-            className="mb-12 lg:mb-16"
+            className="text-center mb-12 lg:mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -708,7 +708,7 @@ export default function Home() {
             <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               Simple, transparent pricing
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-2xl">
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
               Start free. Upgrade when you're ready to publish and scale.
             </motion.p>
           </motion.div>
@@ -903,7 +903,7 @@ export default function Home() {
       <section id="faq" className="bg-gray-50 py-20 lg:py-32 scroll-mt-24">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div
-            className="mb-12 lg:mb-16"
+            className="text-center mb-12 lg:mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -912,7 +912,7 @@ export default function Home() {
             <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               Frequently asked questions
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-2xl">
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
               Everything you need to know about creating and taking courses on PraxiumAI.
             </motion.p>
           </motion.div>
