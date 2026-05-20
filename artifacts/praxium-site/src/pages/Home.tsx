@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X, Linkedin, Instagram, Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import {
   Accordion,
   AccordionContent,
@@ -18,6 +18,24 @@ const MuxPlayer = lazy(() => import("@mux/mux-player-react"));
 const MUX_PLAYBACK_ID = "g4mWtFkEpHWYsO4t004ktdkRFt0001N3TH4OU01lZpRliNk";
 const MUX_POSTER_TIME = 134;
 const MUX_POSTER_URL = `https://image.mux.com/${MUX_PLAYBACK_ID}/thumbnail.jpg?time=${MUX_POSTER_TIME}`;
+
+type VideoConfig = { playbackId: string; title: string; posterTime?: number };
+
+const INTRO_VIDEO: VideoConfig = {
+  playbackId: MUX_PLAYBACK_ID,
+  title: "PraxiumAI product introduction",
+  posterTime: MUX_POSTER_TIME,
+};
+
+const PRODUCT_DEMO_VIDEO: VideoConfig = {
+  playbackId: "TMNKaIbHyYC7nT3o12r0101QLVzGiXq6q6dr9003qRvufo",
+  title: "PraxiumAI product demo",
+};
+
+const getPosterUrl = (video: VideoConfig) =>
+  `https://image.mux.com/${video.playbackId}/thumbnail.jpg${
+    video.posterTime !== undefined ? `?time=${video.posterTime}` : ""
+  }`;
 
 // Asset imports
 import logoWhite from "@assets/praxium/praxium-ai-logo-white.png";
@@ -58,9 +76,11 @@ export default function Home() {
   const [videoOpen, setVideoOpen] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
   const [videoPaused, setVideoPaused] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<VideoConfig>(INTRO_VIDEO);
   const muxPlayerRef = useRef<any>(null);
 
-  const openVideo = () => {
+  const openVideo = (video: VideoConfig = INTRO_VIDEO) => {
+    setActiveVideo(video);
     setVideoEnded(false);
     setVideoPaused(false);
     setVideoOpen(true);
@@ -134,21 +154,34 @@ export default function Home() {
             }`}
             aria-label="Primary"
           >
-            {[
-              { label: "Features", href: "#features" },
-              { label: "Why PraxiumAI", href: "#why" },
-              { label: "Pricing", href: "#pricing" },
-              { label: "FAQ", href: "#faq" },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="relative text-base font-medium opacity-90 hover:opacity-100 transition-opacity after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-left after:bg-current after:transition-transform hover:after:scale-x-100"
-                data-testid={`nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                {item.label}
-              </a>
-            ))}
+            {(
+              [
+                { label: "Features", href: "#features" },
+                { label: "Product", action: () => openVideo(PRODUCT_DEMO_VIDEO) },
+                { label: "Why PraxiumAI", href: "#why" },
+                { label: "Pricing", href: "#pricing" },
+                { label: "FAQ", href: "#faq" },
+              ] as Array<{ label: string; href?: string; action?: () => void }>
+            ).map((item) => {
+              const testId = `nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+              const linkClass =
+                "relative text-base font-medium opacity-90 hover:opacity-100 transition-opacity after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:scale-x-0 after:origin-left after:bg-current after:transition-transform hover:after:scale-x-100";
+              return item.href ? (
+                <a key={item.label} href={item.href} className={linkClass} data-testid={testId}>
+                  {item.label}
+                </a>
+              ) : (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={item.action}
+                  className={`${linkClass} bg-transparent border-0 p-0 cursor-pointer font-[inherit]`}
+                  data-testid={testId}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
@@ -187,21 +220,37 @@ export default function Home() {
                     <img src={logoWhite} alt="PraxiumAI" className="h-7 brightness-0" />
                   </div>
                   <nav className="flex-1 px-6 py-6 flex flex-col gap-1" aria-label="Mobile">
-                    {[
-                      { label: "Features", href: "#features" },
-                      { label: "Why PraxiumAI", href: "#why" },
-                      { label: "Pricing", href: "#pricing" },
-                      { label: "FAQ", href: "#faq" },
-                    ].map((item) => (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        className="text-base font-medium text-gray-800 hover:text-primary py-3 border-b border-gray-100"
-                        data-testid={`mobile-nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                      >
-                        {item.label}
-                      </a>
-                    ))}
+                    {(
+                      [
+                        { label: "Features", href: "#features" },
+                        { label: "Product", action: () => openVideo(PRODUCT_DEMO_VIDEO) },
+                        { label: "Why PraxiumAI", href: "#why" },
+                        { label: "Pricing", href: "#pricing" },
+                        { label: "FAQ", href: "#faq" },
+                      ] as Array<{ label: string; href?: string; action?: () => void }>
+                    ).map((item) => {
+                      const testId = `mobile-nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+                      const cls =
+                        "text-base font-medium text-gray-800 hover:text-primary py-3 border-b border-gray-100 text-left bg-transparent border-l-0 border-r-0 border-t-0 cursor-pointer";
+                      return item.href ? (
+                        <SheetClose asChild key={item.label}>
+                          <a href={item.href} className={cls} data-testid={testId}>
+                            {item.label}
+                          </a>
+                        </SheetClose>
+                      ) : (
+                        <SheetClose asChild key={item.label}>
+                          <button
+                            type="button"
+                            onClick={item.action}
+                            className={cls}
+                            data-testid={testId}
+                          >
+                            {item.label}
+                          </button>
+                        </SheetClose>
+                      );
+                    })}
                   </nav>
                   <div className="px-6 py-6 border-t border-gray-100">
                     <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
@@ -265,7 +314,7 @@ export default function Home() {
                 {/* Play button overlay */}
                 <button
                   type="button"
-                  onClick={openVideo}
+                  onClick={() => openVideo(INTRO_VIDEO)}
                   aria-label="Play product introduction video"
                   className="group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4 focus:outline-none"
                   data-testid="button-play-intro-video"
@@ -1158,7 +1207,7 @@ export default function Home() {
           className="max-w-4xl w-[95vw] p-0 bg-transparent border-0 shadow-none [&>button]:hidden"
           data-testid="dialog-intro-video"
         >
-          <DialogTitle className="sr-only">PraxiumAI product introduction</DialogTitle>
+          <DialogTitle className="sr-only">{activeVideo.title}</DialogTitle>
 
           {/* Close button — outside the video frame, always visible */}
           <DialogClose
@@ -1178,9 +1227,10 @@ export default function Home() {
               }>
                 <MuxPlayer
                   ref={muxPlayerRef}
-                  playbackId={MUX_PLAYBACK_ID}
-                  poster={MUX_POSTER_URL}
-                  metadata={{ video_title: "PraxiumAI product introduction" }}
+                  key={activeVideo.playbackId}
+                  playbackId={activeVideo.playbackId}
+                  poster={getPosterUrl(activeVideo)}
+                  metadata={{ video_title: activeVideo.title }}
                   accentColor="#166A6C"
                   streamType="on-demand"
                   autoPlay
