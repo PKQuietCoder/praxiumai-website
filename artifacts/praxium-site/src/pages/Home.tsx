@@ -875,7 +875,7 @@ export default function Home() {
             transition={{ duration: 0.4 }}
             data-testid="pricing-module-note"
           >
-            A course typically consists of 8–12 modules, each roughly 10–20 minutes long.
+            A typical course might contain 8–12 modules, each roughly 10–20 minutes long.
           </motion.p>
 
           <motion.p
@@ -1001,7 +1001,7 @@ export default function Home() {
                   q: "What's a module, and how is it structured?",
                   a: (
                     <>
-                      A course typically consists of 8–12 modules, each roughly 10–20 minutes long. Each module is a
+                      A typical course might contain 8–12 modules, each roughly 10–20 minutes long. Each module is a
                       focused unit of content made up of lessons and key points. A key point is the atomic unit of
                       learning, roughly 3–5 minutes, and is anchored to a specific behavioral or learning objective,
                       so the learner walks away able to do something concrete, not just recall facts. Modules can be
