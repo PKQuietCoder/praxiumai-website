@@ -951,53 +951,6 @@ export default function Home() {
                   )
                 },
                 {
-                  q: "How is PraxiumAI grounded in learning science?",
-                  a: (
-                    <>
-                      <p className="mb-3">
-                        <strong className="font-semibold text-gray-900">Grounded in learning science.</strong>{" "}
-                        Every step of the PraxiumAI pipeline is anchored in evidence-based instructional design.
-                        We don't guess at what works, we encode it. Our framework draws directly from the
-                        foundational research that defines the field:
-                      </p>
-                      <ul className="list-disc pl-5 space-y-2 mb-4">
-                        <li>
-                          Dick, Carey &amp; Carey's Systems Approach Model for learner analysis and objective design
-                        </li>
-                        <li>
-                          Mager's performance-based objectives and the ABCD model for measurable outcomes
-                        </li>
-                        <li>
-                          Wiggins &amp; McTighe's Backward Design for assessment-first architecture
-                        </li>
-                        <li>
-                          Merrill's First Principles of Instruction for activation, demonstration, and integration
-                        </li>
-                        <li>Gagné's Nine Events of Instruction for cognitive sequencing</li>
-                        <li>
-                          Mayer's Cognitive Theory of Multimedia Learning for content and visual design
-                        </li>
-                        <li>Sweller's Cognitive Load Theory for managing working memory</li>
-                        <li>Shank's MCQ methodology for assessments that actually measure performance</li>
-                        <li>
-                          FMEA (Failure Mode and Effects Analysis) for designing around real-world risk
-                        </li>
-                      </ul>
-                      <p>
-                        <strong className="font-semibold text-gray-900">Built on proven industry practice.</strong>{" "}
-                        Science alone isn't enough; rigorous theory has to meet the realities of how learning gets
-                        built and delivered inside organizations. That's why PraxiumAI's methodology is also shaped
-                        by the work of Megan Torrance, a veteran practitioner, CEO of TorranceLearning, and author
-                        of <em>Agile for Instructional Designers</em>, <em>Data &amp; Analytics for Instructional
-                        Designers</em>, and <em>The AI Implementation Guide for L&amp;D</em>. Her decades of
-                        experience translating learning science into production-ready practice inform how PraxiumAI
-                        balances pedagogical integrity with the speed and iteration today's organizations actually
-                        need.
-                      </p>
-                    </>
-                  )
-                },
-                {
                   q: "What's a module, and how is it structured?",
                   a: (
                     <>
