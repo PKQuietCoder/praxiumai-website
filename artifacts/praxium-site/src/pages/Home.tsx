@@ -23,7 +23,7 @@ type VideoConfig = { playbackId: string; title: string; posterTime?: number };
 
 const INTRO_VIDEO: VideoConfig = {
   playbackId: MUX_PLAYBACK_ID,
-  title: "PraxiumAI product introduction",
+  title: "PraxiumAI vision",
   posterTime: MUX_POSTER_TIME,
 };
 
@@ -76,10 +76,10 @@ export default function Home() {
   const [videoOpen, setVideoOpen] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
   const [videoPaused, setVideoPaused] = useState(false);
-  const [activeVideo, setActiveVideo] = useState<VideoConfig>(INTRO_VIDEO);
+  const [activeVideo, setActiveVideo] = useState<VideoConfig>(PRODUCT_DEMO_VIDEO);
   const muxPlayerRef = useRef<any>(null);
 
-  const openVideo = (video: VideoConfig = INTRO_VIDEO) => {
+  const openVideo = (video: VideoConfig = PRODUCT_DEMO_VIDEO) => {
     setActiveVideo(video);
     setVideoEnded(false);
     setVideoPaused(false);
@@ -171,7 +171,7 @@ export default function Home() {
             {(
               [
                 { label: "Features", href: "#features" },
-                { label: "Product", action: () => openVideo(PRODUCT_DEMO_VIDEO) },
+                { label: "Vision", action: () => openVideo(INTRO_VIDEO) },
                 { label: "Why PraxiumAI", href: "#why" },
                 { label: "Pricing", href: "#pricing" },
                 { label: "FAQ", href: "#faq" },
@@ -237,7 +237,7 @@ export default function Home() {
                     {(
                       [
                         { label: "Features", href: "#features" },
-                        { label: "Product", action: () => openVideo(PRODUCT_DEMO_VIDEO) },
+                        { label: "Vision", action: () => openVideo(INTRO_VIDEO) },
                         { label: "Why PraxiumAI", href: "#why" },
                         { label: "Pricing", href: "#pricing" },
                         { label: "FAQ", href: "#faq" },
@@ -328,10 +328,10 @@ export default function Home() {
                 {/* Play button overlay */}
                 <button
                   type="button"
-                  onClick={() => openVideo(INTRO_VIDEO)}
-                  aria-label="Play product introduction video"
+                  onClick={() => openVideo(PRODUCT_DEMO_VIDEO)}
+                  aria-label="Play product demo video"
                   className="group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4 focus:outline-none"
-                  data-testid="button-play-intro-video"
+                  data-testid="button-play-product-demo"
                 >
                   {/* Soft glow halo behind button for contrast against laptop screen */}
                   <span aria-hidden className="absolute -inset-10 rounded-full bg-accent/25 blur-2xl" />
@@ -349,7 +349,7 @@ export default function Home() {
 
                   {/* Label pill */}
                   <span className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-lg ring-2 ring-white/40 transition-transform group-hover:-translate-y-0.5">
-                    Watch intro video
+                    Product Demo
                   </span>
                 </button>
               </div>
