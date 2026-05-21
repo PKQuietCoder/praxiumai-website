@@ -1023,41 +1023,6 @@ export default function Home() {
                   )
                 },
                 {
-                  q: "How long does course creation take, and when do I need to be involved?",
-                  a: (
-                    <>
-                      <p className="mb-3">
-                        Approximately one hour for a complete 30-minute course — including learner analysis, objective
-                        setting, content generation, assessment design, and formatting for delivery. The traditional
-                        process for the same course takes 8–12 weeks and costs $30,000–$50,000 at fully-loaded industry
-                        rates. PraxiumAI does not cut corners to achieve that speed; it automates the execution so
-                        human attention can stay focused on judgment, validation, and strategic design.
-                      </p>
-                      <p className="mb-3">There are four short checkpoints early on where your input is needed:</p>
-                      <ol className="list-decimal pl-5 space-y-2 mb-3">
-                        <li>Upload your source documents to start the course.</li>
-                        <li>
-                          Confirm the learner persona — after ~5–15 minutes (depending on doc length) of document
-                          analysis, you'll be prompted to accept or refine the suggested audience.
-                        </li>
-                        <li>
-                          Confirm the instructional goal — after ~5 more minutes, you'll review and refine the
-                          recommended goal.
-                        </li>
-                        <li>
-                          Approve the learning objectives — after ~5–10 more minutes, you'll finalize the proposed
-                          objectives.
-                        </li>
-                      </ol>
-                      <p>
-                        You don't have to stay on the page between steps. Each course's current state — for example,
-                        "Action required" or "Generating" — is shown on the home page, so you can step away and pick up
-                        where you left off whenever it's convenient.
-                      </p>
-                    </>
-                  )
-                },
-                {
                   q: "What kinds of content can a creator produce?",
                   a: (
                     <>
