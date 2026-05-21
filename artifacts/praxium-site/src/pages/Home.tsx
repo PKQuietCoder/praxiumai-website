@@ -28,7 +28,7 @@ const INTRO_VIDEO: VideoConfig = {
 };
 
 const PRODUCT_DEMO_VIDEO: VideoConfig = {
-  playbackId: "TMNKaIbHyYC7nT3o12r0101QLVzGiXq6q6dr9003qRvufo",
+  playbackId: "01My2pKtNmz102tHwYQdol3CbhaGpF5ZZrOSu01ceo00RiI",
   title: "PraxiumAI product demo",
 };
 
