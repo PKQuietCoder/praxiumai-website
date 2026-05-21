@@ -127,6 +127,20 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const openFromHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === "#watch-intro") {
+        openVideo(INTRO_VIDEO);
+      } else if (hash === "#watch-product") {
+        openVideo(PRODUCT_DEMO_VIDEO);
+      }
+    };
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, []);
+
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
@@ -1248,7 +1262,18 @@ export default function Home() {
         </div>
       </footer>
       {/* Product Intro Video Modal */}
-      <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+      <Dialog
+        open={videoOpen}
+        onOpenChange={(open) => {
+          setVideoOpen(open);
+          if (!open) {
+            const hash = window.location.hash.toLowerCase();
+            if (hash === "#watch-intro" || hash === "#watch-product") {
+              history.replaceState(null, "", window.location.pathname + window.location.search);
+            }
+          }
+        }}
+      >
         <DialogContent
           className="max-w-4xl w-[95vw] p-0 bg-transparent border-0 shadow-none [&>button]:hidden"
           data-testid="dialog-intro-video"
