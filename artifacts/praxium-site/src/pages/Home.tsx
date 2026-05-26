@@ -205,7 +205,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="hidden sm:inline-block"
             >
-              <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-10 sm:h-11 px-4 sm:px-6 text-sm sm:text-base shadow-md transition-transform hover:-translate-y-0.5">
+              <Button className="bg-accent hover:bg-accent/90 text-black rounded-[7px] font-medium h-10 sm:h-11 px-4 sm:px-6 text-sm sm:text-base shadow-md transition-transform hover:-translate-y-0.5">
                 Request Access
                 <ArrowUpRight className="ml-1.5 sm:ml-2 h-4 w-4" />
               </Button>
@@ -268,7 +268,7 @@ export default function Home() {
                   </nav>
                   <div className="px-6 py-6 border-t border-gray-100">
                     <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-11 shadow-md">
+                      <Button className="w-full bg-accent hover:bg-accent/90 text-black rounded-[7px] font-medium h-11 shadow-md">
                         Request Access
                         <ArrowUpRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -302,7 +302,7 @@ export default function Home() {
               >PraxiumAI turns them into multimedia modules your customers and colleagues actually use. Grounded in learning science. Built for the agentic era.</motion.p>
               <motion.div variants={fadeInUp}>
                 <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] text-lg font-medium h-14 px-8 shadow-lg transition-transform hover:-translate-y-0.5">
+                  <Button className="bg-accent hover:bg-accent/90 text-black rounded-[7px] text-lg font-medium h-14 px-8 shadow-lg transition-transform hover:-translate-y-0.5">
                     Request Access
                     <ArrowUpRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -348,7 +348,7 @@ export default function Home() {
                   </span>
 
                   {/* Label pill */}
-                  <span className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-lg ring-2 ring-white/40 transition-transform group-hover:-translate-y-0.5">
+                  <span className="relative inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-black shadow-lg ring-2 ring-white/40 transition-transform group-hover:-translate-y-0.5">
                     Product Demo
                   </span>
                 </button>
@@ -1131,7 +1131,7 @@ export default function Home() {
             </motion.h2>
             <motion.div variants={fadeInUp}>
               <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] text-lg font-medium h-14 px-8 shadow-xl transition-transform hover:-translate-y-0.5">
+                <Button className="bg-accent hover:bg-accent/90 text-black rounded-[7px] text-lg font-medium h-14 px-8 shadow-xl transition-transform hover:-translate-y-0.5">
                   Request Access
                   <ArrowUpRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -1266,7 +1266,7 @@ export default function Home() {
                     className="w-full sm:w-auto"
                     data-testid="link-end-card-request-access"
                   >
-                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-12 px-6 text-base shadow-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <Button className="bg-accent hover:bg-accent/90 text-black rounded-[7px] font-medium h-12 px-6 text-base shadow-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto">
                       Request Access
                       <ArrowUpRight className="ml-2 h-5 w-5" />
                     </Button>
@@ -1313,7 +1313,7 @@ export default function Home() {
                     className="w-full sm:w-auto"
                     data-testid="link-paused-card-request-access"
                   >
-                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-[7px] font-medium h-12 px-6 text-base shadow-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <Button className="bg-accent hover:bg-accent/90 text-black rounded-[7px] font-medium h-12 px-6 text-base shadow-lg transition-transform hover:-translate-y-0.5 w-full sm:w-auto">
                       Request Access
                       <ArrowUpRight className="ml-2 h-5 w-5" />
                     </Button>
