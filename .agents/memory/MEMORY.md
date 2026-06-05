@@ -1,0 +1,1 @@
+- [Figma Slides extraction](figma-slides-extraction.md) — Figma *Slides* files only support getScreenshot; metadata/design-context fail. Recreate decks from cropped screenshots.

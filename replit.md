@@ -22,7 +22,12 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/praxium-site/` — PraxiumAI marketing site (React + Vite + wouter)
+  - `src/pages/Home.tsx` — main landing page (`/`)
+  - `src/pages/Presentation.tsx` — interactive 13-slide deck shell (`/presentation`, not linked from nav)
+  - `src/components/presentation/slides.tsx` — the 13 slide components + exported `SLIDES`
+  - `src/components/presentation/shared.tsx` — brand tokens, animation variants, slide primitives
+  - `src/App.tsx` — route table
 
 ## Architecture decisions
 
