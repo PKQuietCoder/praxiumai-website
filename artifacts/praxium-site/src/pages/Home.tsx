@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X, Linkedin, Instagram, Menu } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, Play, X, Linkedin, Instagram, Menu, RefreshCw, Link2, GraduationCap } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import {
   Accordion,
@@ -295,11 +295,11 @@ export default function Home() {
               <motion.h1 
                 variants={fadeInUp}
                 className="text-[2rem] sm:text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-6"
-              >No one reads your datasheets, manuals, and decks</motion.h1>
+              >No one reads your docs, manuals, and decks</motion.h1>
               <motion.p 
                 variants={fadeInUp}
                 className="text-base sm:text-lg lg:text-xl text-primary-foreground/90 leading-relaxed mb-8 sm:mb-10 max-w-xl"
-              >PraxiumAI turns them into multimedia modules your customers and colleagues actually use. Grounded in learning science. Built for the agentic era.</motion.p>
+              >PraxiumAI turns your files and live docs into multimedia modules people actually use, then keeps them current as your docs change. Grounded in learning science. Built for the agentic era.</motion.p>
               <motion.div variants={fadeInUp}>
                 <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-accent hover:bg-accent/90 text-black rounded-[7px] text-lg font-medium h-14 px-8 shadow-lg transition-transform hover:-translate-y-0.5">
@@ -400,7 +400,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
             className="text-2xl lg:text-4xl font-semibold text-gray-900 leading-tight"
-          >Upload PDFs and take an intake interview. PraxiumAI then builds rich personalized interactive modules with assessments.</motion.h2>
+          >Upload your files or docs URL and take a quick intake interview. PraxiumAI builds personalized, interactive modules with assessments, kept in sync as your docs evolve.</motion.h2>
         </div>
       </section>
       {/* Three Icons Row */}
@@ -499,7 +499,7 @@ export default function Home() {
             variants={staggerContainer}
           >
             {[
-              { img: step1Img, title: "Upload your docs", body: "Manuals, Datasheets, App Notes and more in PDF, PPT and DOC." },
+              { img: step1Img, title: "Upload your docs", body: "Manuals, Datasheets, App Notes and more in PDF, PPT and DOC — or paste a link to your live online docs." },
               { img: step2Img, title: "Review & trust the draft", body: "AI-assisted learning objective selection. Every claim sourced and tested." },
               { img: step3Img, title: "Personalize & publish", body: "Personalized by role and experience. Delivered as video, slides, or AI tutor." }
             ].map((step, i) => (
@@ -513,6 +513,110 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+      {/* Docs to living courses */}
+      <section className="bg-white py-20 lg:py-32 border-t border-gray-100">
+        <div className="container mx-auto px-6 max-w-5xl">
+          {/* Centered header */}
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.span variants={fadeInUp} className="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block">
+              Docs → Living Courses
+            </motion.span>
+            <motion.h2 variants={fadeInUp} className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight max-w-3xl mx-auto">
+              Turn your docs into a course that maintains itself
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Point at your docs, build an interactive course, and keep it current as they change.
+            </motion.p>
+          </motion.div>
+
+          {/* docs → learn visual */}
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="rounded-3xl border border-gray-100 shadow-xl bg-secondary p-8 lg:p-12">
+              <div className="flex flex-col sm:flex-row items-stretch gap-6">
+                {/* docs source */}
+                <div className="flex-1 bg-white rounded-2xl border border-gray-200 p-6 flex flex-col items-center text-center">
+                  <div className="bg-gray-100 rounded-full p-3 text-gray-500 mb-4">
+                    <Link2 className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-1">Your docs</span>
+                  <span className="font-mono text-sm text-gray-700 break-all">docs.yourproduct.com</span>
+                </div>
+
+                {/* transform arrow */}
+                <div className="flex sm:flex-col items-center justify-center gap-2 text-primary">
+                  <ArrowRight className="w-7 h-7 sm:rotate-0 rotate-90" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 rounded-full px-3 py-1">
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    Auto-synced
+                  </span>
+                </div>
+
+                {/* learn output */}
+                <div className="flex-1 bg-white rounded-2xl border-2 border-primary p-6 flex flex-col items-center text-center shadow-sm">
+                  <div className="bg-primary/10 rounded-full p-3 text-primary mb-4">
+                    <GraduationCap className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs uppercase tracking-wider text-primary/70 font-semibold mb-1">Your course</span>
+                  <span className="font-mono text-sm text-gray-900 break-all">learn.yourproduct.com</span>
+                </div>
+              </div>
+              <p className="text-center text-sm text-gray-500 mt-8">
+                Publish once, then let your course update itself whenever your documentation changes.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Benefits row */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            {[
+              "Ingest live docs from a URL or upload files — PDF, PPT, DOC.",
+              "Courses stay in sync automatically as your source docs change.",
+              "Every lesson stays sourced, verifiable, and click-to-reference.",
+            ].map((text, i) => (
+              <motion.div key={i} variants={fadeInUp} className="flex flex-col items-center text-center">
+                <div className="bg-primary/10 rounded-full p-2.5 text-primary mb-4">
+                  <CheckCircle2 className="w-6 h-6" />
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">{text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            className="text-center mt-16"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <a href="https://app.getpraxium.ai/" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-accent hover:bg-accent/90 text-black rounded-[7px] text-lg font-medium h-14 px-8 shadow-lg transition-transform hover:-translate-y-0.5">
+                Request Access
+                <ArrowUpRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -538,7 +642,7 @@ export default function Home() {
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex gap-6 lg:gap-8 touch-pan-y">
                 {[
-                  { img: feature1Img, eyebrow: "AI-Powered Module Creation", lead: "Start with your docs and expertise. Let AI build the rest.", body: "Turn complex PDFs, slides, and SOPs into rich, interactive modules with quizzes—with manual updating." },
+                  { img: feature1Img, eyebrow: "AI-Powered Module Creation", lead: "Start with your docs and expertise. Let AI build the rest.", body: "Turn complex PDFs, slides, SOPs, and live online docs into rich, interactive modules with quizzes—that stay up to date as your docs change." },
                   { img: feature2Img, eyebrow: "Built-in Accuracy and Trust", lead: "Module quality you don't have to second-guess.", body: "Every lesson backed by learning science, with technical attribution and grounded generation—easy to audit and verify." },
                   { img: feature3Img, eyebrow: "Total Personalization", lead: "One module. Infinite versions.", body: "Personalize by role and experience, then let learners choose their format—video, diagrams, slides, or an AI tutor." },
                   { img: feature4Img, eyebrow: "In-Workflow Learning", lead: "Training that comes to you", body: "With MCP, Plugins, and API, embed learning directly into tools and workflows—no detours, no context switching." },
@@ -985,6 +1089,18 @@ export default function Home() {
                       video, and avatar-presented video — all derived from your source material and editable inline.
                       The visual language is intentionally minimal: the goal is a calm, distraction-free surface that
                       keeps the learner focused on the material.
+                    </>
+                  )
+                },
+                {
+                  q: "Can PraxiumAI use our online documentation, and what happens when our docs change?",
+                  a: (
+                    <>
+                      Yes. Alongside uploaded files (PDF, PPT, DOC), you can point PraxiumAI at a live documentation URL —
+                      including the agent-generated docs many teams now publish. PraxiumAI ingests that documentation and
+                      builds an interactive course from it. Because the course stays linked to its source, it can be kept
+                      continuously up to date as your docs evolve, so the learning experience never drifts out of sync with
+                      your product — no rebuilding from scratch each time something changes.
                     </>
                   )
                 },
