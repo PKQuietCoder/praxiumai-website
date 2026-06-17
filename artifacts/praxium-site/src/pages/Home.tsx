@@ -754,7 +754,8 @@ export default function Home() {
                     { row: "Multimedia personalization",          ratings: ["best", "best", "weak", "ok"] },
                     { row: "Rigorous skill modeling",             ratings: ["best", "ok", "weak", "ok"] },
                     { row: "Faithfulness and technical grounding", ratings: ["best", "ok", "weak", "weak"] },
-                    { row: "In-workflow integrations",            ratings: ["best", "weak", "ok", "best"] }
+                    { row: "In-workflow integrations",            ratings: ["best", "weak", "ok", "best"] },
+                    { row: "Continuously updatable from live URL and Docs", ratings: ["best", "weak", "weak", "weak"] }
                   ].map((row, ri) => (
                     <tr key={ri} className="border-t border-gray-100">
                       <td className="p-5 lg:p-6 font-semibold text-gray-900 text-sm lg:text-base">
